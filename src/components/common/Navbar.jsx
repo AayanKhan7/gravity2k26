@@ -16,7 +16,6 @@ export default function Navbar() {
         <li><Link to="about" spy={true} smooth={true} offset={-80} duration={500}>ABOUT</Link></li>
         <li><Link to="events" spy={true} smooth={true} offset={-80} duration={500}>EVENTS</Link></li>
         <li><Link to="sponsors" spy={true} smooth={true} offset={-80} duration={500}>SPONSORS</Link></li>
-        <li><Link to="register-portal" spy={true} smooth={true} offset={-80} duration={500}><button className="register-btn">REGISTER NOW</button></Link></li>
       </ul>
     </nav>
   )

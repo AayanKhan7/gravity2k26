@@ -46,6 +46,7 @@ export default function EarthModel() {
           map={colorMap}
           normalMap={normalMap}
           specularMap={specularMap}
+          // The shininess property is deprecated in MeshStandardMaterial.
           shininess={10}
         />
       </mesh>
