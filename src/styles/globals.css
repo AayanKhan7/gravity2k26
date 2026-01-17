@@ -72,6 +72,19 @@
   color: black;
 }
 
+/* ===== HERO SECTION ROTATING ANIMATION ===== */
+@keyframes rotatingGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* ===== HERO SECTION (Reference Design) ===== */
 #hero {
   min-height: 100vh;
@@ -81,7 +94,14 @@
   align-items: center;
   text-align: center;
   padding: 0 1.5rem;
-  background: transparent;
+  background: linear-gradient(
+    45deg,
+    rgba(77, 178, 255, 0.15),
+    rgba(213, 0, 249, 0.15),
+    rgba(77, 178, 255, 0.15)
+  );
+  background-size: 400% 400%;
+  animation: rotatingGradient 8s ease infinite;
   position: relative;
   z-index: 1;
 }
