@@ -4,62 +4,60 @@ import EventsPlanetScene from "./EventsPlanetScene"
 
 export default function EventPlanetCard({ event, isActive }) {
   return (
-    // UPDATED WRAPPER:
-    // - Removed 'min-w-[100vw]' to prevent forcing full-screen blocking.
-    // - Added 'w-[100vw] md:w-[85vw]' to allow a slight peek at the next card on desktop.
-    // - Added 'flex-shrink-0' to ensure it doesn't squash.
     <div className="w-[100vw] md:w-[85vw] max-w-7xl h-full flex items-center justify-center px-4 md:px-16 flex-shrink-0">
       <motion.div
         animate={{ scale: isActive ? 1 : 0.98 }}
         transition={{ duration: 0.4 }}
         style={{
-          border: "1px solid rgba(255,255,255,0.85)",
-          boxShadow: `0 0 25px ${event.planetAccent}55`,
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: `0 0 30px ${event.planetAccent}40`, // Soft colored glow
         }}
         className="
-          w-full rounded-3xl bg-white/10 backdrop-blur-xl
-          flex flex-col md:flex-row gap-8 md:gap-0 p-6 md:p-10
-          relative z-10
+          w-full rounded-3xl bg-black/40 backdrop-blur-xl
+          flex flex-col md:flex-row gap-8 md:gap-0 p-6 md:p-12
+          relative z-10 overflow-hidden
         "
       >
-        {/* LEFT */}
-        <div className="w-full md:w-1/3 text-center md:text-left">
+        {/* Background Gradient Mesh */}
+        <div 
+            className="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none"
+            style={{ background: `radial-gradient(circle at 80% 50%, ${event.planetAccent}, transparent 60%)` }}
+        />
+
+        {/* LEFT TEXT */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left z-10">
           <h1
-            className="text-3xl md:text-5xl tracking-widest mb-4"
-            style={{ color: event.planetAccent }}
+            className="text-4xl md:text-6xl font-bold tracking-widest mb-6 uppercase"
+            style={{ color: event.planetAccent, textShadow: `0 0 20px ${event.planetAccent}50` }}
           >
             {event.title}
           </h1>
 
-          <p className="text-white/70 mb-6">
+          <p className="text-white/80 mb-8 text-lg leading-relaxed max-w-lg">
             {event.description}
           </p>
 
-          {/* LINK BUTTON */}
           <Link to={event.path}>
             <button
-              className="px-6 py-2 rounded-full border transition-all hover:scale-105"
+              className="px-8 py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:bg-white/10"
               style={{
                 borderColor: event.planetAccent,
                 color: event.planetAccent,
+                boxShadow: `0 0 15px ${event.planetAccent}30`
               }}
             >
-              Explore Events
+              Explore Event
             </button>
           </Link>
         </div>
 
-        {/* CENTER */}
-        <div className="w-full md:w-1/3 flex justify-center items-center">
-          <div className="w-[280px] h-[280px] md:w-[420px] md:h-[420px]">
+        {/* RIGHT 3D SCENE */}
+        <div className="w-full md:w-1/2 flex justify-center items-center h-[300px] md:h-[500px] z-10">
+          <div className="w-full h-full">
             <EventsPlanetScene planetType={event.planetType} />
           </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="hidden md:flex w-1/3 justify-center items-center text-white/40">
-          Character
-        </div>
       </motion.div>
     </div>
   )

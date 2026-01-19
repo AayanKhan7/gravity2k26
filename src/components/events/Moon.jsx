@@ -4,9 +4,9 @@ export default function Moon() {
   return (
     <Planet
       size={1.6}
+      textureMap="/textures/moon.jpg"
+      glowColor={[0.8, 0.8, 0.8]} // White Glow
       rotationSpeed={0.001}
-      textureMap="/textures/moon.jpg" // Ensure this matches your file extension (.png or .jpg)
-      glowColor={[0.6, 0.6, 0.6]} // White/Grey Atmosphere
     />
   )
 }

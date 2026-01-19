@@ -2,12 +2,12 @@ import { Element } from 'react-scroll'
 import { motion } from 'framer-motion'
 
 const images = [
-  '/assets/images/gallery/1.png',
-  '/assets/images/gallery/2.png',
-  '/assets/images/gallery/3.png',
-  '/assets/images/gallery/4.png',
-  '/assets/images/gallery/5.png',
-  '/assets/images/gallery/6.png',
+  '/assets/images/gallery/1.webp',
+  '/assets/images/gallery/2.webp',
+  '/assets/images/gallery/3.webp',
+  '/assets/images/gallery/4.webp',
+  '/assets/images/gallery/5.webp',
+  '/assets/images/gallery/6.webp',
 ]
 
 export default function Gallery() {

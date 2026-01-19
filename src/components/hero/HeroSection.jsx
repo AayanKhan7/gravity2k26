@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-scroll"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { SITE_CONFIG } from "../../data/index.js"
-import Navbar from "../common/Navbar"
+// ❌ DELETE THIS LINE: import Navbar from "../common/Navbar"
 
 export default function HeroSection() {
   const ref = useRef(null)
@@ -12,6 +12,7 @@ export default function HeroSection() {
     offset: ["start start", "end start"],
   })
 
+  // Parallax effects
   const logoY = useTransform(scrollY, [0, 500], [0, -140])
   const logoScale = useTransform(scrollY, [0, 500], [1, 1.05])
 
@@ -26,24 +27,7 @@ export default function HeroSection() {
         height: "100vh",
       }}
     >
-      {/* ✅ NAVBAR — RESPONSIVE WRAPPER */}
-      <div
-        style={{
-          position: "absolute",
-          top: "3vh",
-          left: 0,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          zIndex: 60,
-          pointerEvents: "none", // Allows clicks to pass through empty space
-        }}
-      >
-        {/* Re-enable clicks for the Navbar itself */}
-        <div style={{ pointerEvents: "auto" }}>
-          <Navbar />
-        </div>
-      </div>
+      {/* ❌ DELETE THE NAVBAR DIV BLOCK THAT WAS HERE */}
 
       {/* HERO CONTENT */}
       <div
@@ -57,36 +41,27 @@ export default function HeroSection() {
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          marginTop: "-6vh",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
         }}
       >
         <motion.img
           src="/assets/images/Gravity logo.PNG"
           alt="Gravity 2K26"
+          className="h-[180px] md:h-[320px] w-auto mb-6 md:mb-10 drop-shadow-[0_0_40px_rgba(255,255,255,0.35)]"
           style={{
-            height: "320px",
             maxWidth: "90vw",
-            marginBottom: "40px",
-            filter: "drop-shadow(0 0 40px rgba(255,255,255,0.35))",
             y: logoY,
             scale: logoScale,
           }}
         />
 
-        <p
-          className="hero-subtitle"
-          style={{
-            marginBottom: "36px",
-            fontSize: "1.1rem",
-            opacity: 0.85,
-            color: "white", // Ensure text is visible
-          }}
-        >
-          {SITE_CONFIG.tagline}
+        <p className="hero-subtitle text-white/90 text-sm md:text-lg mb-8 md:mb-10 tracking-widest uppercase font-medium">
+          {SITE_CONFIG?.tagline || "THE ULTIMATE TECHFEST"}
         </p>
 
         <Link to="events" smooth offset={-100} duration={600}>
-          <button className="hero-btn primary">
+          <button className="hero-btn primary px-6 py-2 md:px-8 md:py-3 text-sm md:text-base rounded-full bg-white text-black font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.4)]">
             Explore Events
           </button>
         </Link>
