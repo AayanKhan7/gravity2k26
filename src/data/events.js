@@ -10,7 +10,6 @@ export const EVENTS = [
     planetAccent: '#9e9e9e',
     path: '/pitch-perfect',
     description: "Pitch your startup vision to investors and secure funding for your empire. Domains: Fintech, HealthTech, Agri-Tech, Sustainable Solutions, & EdTech.",
-    // ✅ UPDATED PRIZE POOL
     prizePool: 'Prize Money worth upto 1 Lakh', 
     registrationFee: '₹499 per team',
     teamSize: 'Up to 4 members',
@@ -90,7 +89,6 @@ export const EVENTS = [
     planetAccent: '#cfcfcf',
     path: '/cineclash',
     description: "Direct, edit, and showcase your cinematic saga. A digital marketing–oriented competition to encourage storytelling and branding.",
-    // ✅ UPDATED PRIZE POOL
     prizePool: 'Prize money worth upto 50k', 
     registrationFee: '₹499 per team',
     teamSize: 'Individual or Team',
@@ -156,7 +154,6 @@ export const EVENTS = [
     planetAccent: '#3f8cff',
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, or PharmaTech.",
-    // ✅ UPDATED PRIZE POOL
     prizePool: 'Prize money worth upto 30k',
     registrationFee: 'Varies',
     teamSize: 'Varies',
@@ -215,7 +212,6 @@ export const EVENTS = [
         ]
       },
       
-      // ✅ UPDATED BUG 2 BUILD WITH DETAILED RULEBOOK
       {
         title: "BUG 2 BUILD (Coding)",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
@@ -273,15 +269,33 @@ export const EVENTS = [
         ]
       },
       
+      // ✅ UPDATED INFRATHON EVENT DETAILS
       {
-        title: "Infrathon (DevOps)",
-        description: "Showcase your cloud infrastructure skills. Build, deploy, and scale.",
+        title: "Infrathon (Model Making)",
+        description: "Model Making building the best from everyday materials.",
         image: "/assets/images/infrathon.png",
-        fee: "₹300 / Team",
+        fee: "₹199 / Team",
         date: "20 Feb",
-        rounds: "Build & Deploy",
-        prize: "Prize money worth upto 30k"
+        rounds: "2 Rounds",
+        prize: "Prize money worth upto 30k",
+        ruleBook: [
+          {
+            title: "Event Details",
+            points: [
+              "Team Composition: 2-4 people",
+              "Thrust Area: Creativity, Logic, Civil/Architecture knowledge."
+            ]
+          },
+          {
+            title: "Round Structure",
+            points: [
+              "Round 1 - Making skyscrapers from newspapers",
+              "Round 2 - Bridge making, making the most endurable bridge."
+            ]
+          }
+        ]
       },
+
       {
         title: "PharmaTech",
         description: "Innovate at the intersection of technology and medicine.",
@@ -305,7 +319,6 @@ export const EVENTS = [
     planetAccent: '#66d1c1',
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
-    // ✅ UPDATED PRIZE POOL
     prizePool: 'Prize money worth upto 15k',
     registrationFee: 'Varies',
     teamSize: 'Squad Based',
