@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from '../../data'
 import { motion } from 'framer-motion'
-// 👇 Changed imports to use Lucide (which you already have)
-import { Instagram, Twitter, Linkedin, Github } from 'lucide-react'
+// 👇 Removed Github, Kept others
+import { Instagram, Twitter, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   const colleges = [
@@ -14,6 +14,25 @@ export default function Footer() {
     "Trinity Polytechnic",
     "Trinity Institute of Management & Research (TIMR)",
     "Trinity College of Arts, Commerce & Science (TCACS)"
+  ]
+
+  // ✅ SOCIAL LINKS CONFIGURATION
+  const socialLinks = [
+    { 
+      icon: Instagram, 
+      href: "https://www.instagram.com/gravity_2k26?igsh=Ym9lcDdsNjV5cm80",
+      color: "hover:text-pink-500"
+    },
+    { 
+      icon: Twitter, 
+      href: "#", // Add Twitter link if available
+      color: "hover:text-sky-400"
+    },
+    { 
+      icon: Linkedin, 
+      href: "#", // Add LinkedIn link if available
+      color: "hover:text-blue-600"
+    }
   ]
 
   return (
@@ -71,33 +90,51 @@ export default function Footer() {
 
           <div className="md:col-span-4">
             <h3 className="text-white font-bold text-lg mb-6 tracking-widest uppercase">Connect</h3>
+            
+            {/* SOCIAL ICONS */}
             <div className="flex gap-4 mb-8">
-              {/* 👇 Updated Icon Components */}
-              {[Instagram, Twitter, Linkedin, Github].map((Icon, i) => (
+              {socialLinks.map((social, i) => (
                 <a 
                   key={i} 
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 hover:bg-cyan-500 hover:text-white transition-all duration-300 hover:scale-110 border border-white/10"
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/70 ${social.color} hover:bg-white/10 transition-all duration-300 hover:scale-110 border border-white/10`}
                 >
-                  <Icon size={18} />
+                  <social.icon size={18} />
                 </a>
               ))}
             </div>
+
             <div className="p-4 rounded-xl bg-white/5 border border-white/10">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">General Inquiries</p>
-              <p className="text-white font-mono">contact@gravity2k26.com</p>
+              {/* ✅ UPDATED EMAIL */}
+              <a href="mailto:gravity2k26@gmail.com" className="text-white font-mono hover:text-cyan-400 transition-colors">
+                gravity2k26.tae@kjei.edu.in
+              </a>
             </div>
           </div>
 
         </div>
       </div>
 
+      {/* COPYRIGHT & DEVELOPER INFO */}
       <div className="border-t border-white/5 py-6 bg-black/20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/30">
           <p>© 2026 KJEI Techfest. All rights reserved.</p>
-          <p>
-            Designed & Developed by <span className="text-cyan-400/60">Tech Team Gravity</span>
-          </p>
+          
+          <div className="text-center md:text-right">
+            <p className="mb-1">
+              Designed & Developed by <span className="text-cyan-400/60">Tech Team Gravity</span>
+            </p>
+            {/* ✅ ADDED AYAAN KHAN DETAILS */}
+            <p>
+              Lead Developer: <span className="text-white/50">Ayaan Khan</span> • 
+              <a href="mailto:ayaanikhan.tae@kjei.edu.in" className="hover:text-cyan-400 ml-1 transition-colors">
+                ayaanikhan.tae@kjei.edu.in
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

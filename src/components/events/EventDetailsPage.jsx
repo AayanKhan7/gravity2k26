@@ -1,139 +1,289 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+import { 
+  Calendar, 
+  Trophy, 
+  CreditCard, 
+  Layers, 
+  ArrowLeft, 
+  CheckCircle2, 
+  Terminal,
+  ShieldAlert 
+} from "lucide-react"
 
 export default function EventDetailsPage({ eventData }) {
-  // 1. Fallback if data is completely missing
+  // Scroll to top on load
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (!eventData) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center z-50 relative">
-        <h1 className="text-2xl">Event Data Not Found. Check events.js</h1>
+        <div className="text-center space-y-4">
+          <ShieldAlert className="w-16 h-16 text-red-500 mx-auto animate-pulse" />
+          <h1 className="text-2xl font-mono text-red-400 tracking-widest uppercase">
+            Data Transmission Failed
+          </h1>
+          <p className="text-white/50">Event data could not be retrieved.</p>
+        </div>
       </div>
     )
   }
 
-  // 2. Check if subEvents exist (Crucial for rendering)
   const hasSubEvents = eventData.subEvents && eventData.subEvents.length > 0;
 
   return (
-    // Added 'relative z-10' to ensure this sits ON TOP of the background stars
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-cyan-500/30 pb-20 relative z-10">
+    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-cyan-500/30 pb-32 relative z-10 overflow-hidden">
       
+      {/* 🌌 Background Elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-cyan-500/5 blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/5 blur-[120px]" />
+      </div>
+
       {/* 🔙 NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full p-6 z-50 flex items-center bg-gradient-to-b from-black/80 to-transparent">
+      <nav className="fixed top-0 left-0 w-full p-6 z-50 flex items-center bg-gradient-to-b from-black via-black/80 to-transparent pointer-events-none">
         <Link 
           to="/" 
           className="
-            flex items-center gap-2 px-5 py-2 rounded-full 
-            bg-white/10 backdrop-blur-md border border-white/10 
-            hover:bg-white/20 transition-all text-sm font-medium
+            pointer-events-auto group
+            flex items-center gap-3 px-6 py-3 rounded-full 
+            bg-white/5 backdrop-blur-xl border border-white/10 
+            hover:bg-white/10 hover:border-white/30 transition-all duration-300
           "
         >
-          &larr; Back to Events
+          <div className="p-1 rounded-full bg-white/10 group-hover:bg-cyan-500 transition-colors">
+            <ArrowLeft className="w-4 h-4 text-white" />
+          </div>
+          <span className="text-sm font-bold tracking-widest uppercase text-white/80 group-hover:text-white">
+            Mission Control
+          </span>
         </Link>
       </nav>
 
-      <div className="pt-32 px-6 md:px-20 max-w-7xl mx-auto">
+      <div className="pt-40 px-6 md:px-12 max-w-7xl mx-auto relative">
         
-        {/* HEADER */}
-        <div className="mb-20 text-center">
+        {/* 🚀 MAIN HEADER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-24 text-center relative"
+        >
+          {/* Decorative Lines */}
+          <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent -z-10" />
+
           <h1 
-            className="text-5xl md:text-8xl font-black tracking-tighter mb-6 uppercase"
+            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter mb-6 uppercase leading-none"
             style={{ 
               color: "transparent", 
-              WebkitTextStroke: `2px ${eventData.planetAccent}`,
-              textShadow: `0 0 40px ${eventData.planetAccent}50`
+              WebkitTextStroke: `1px ${eventData.planetAccent}`,
+              textShadow: `0 0 80px ${eventData.planetAccent}30`
             }}
           >
             {eventData.title}
           </h1>
-          <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
+          <div className="inline-block px-4 py-1 rounded-full border border-white/10 bg-black/50 backdrop-blur-md text-xs font-mono uppercase tracking-[0.3em] text-white/60 mb-6">
+            {eventData.type}
+          </div>
+          <p className="text-lg md:text-2xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
             {eventData.description}
           </p>
-        </div>
+        </motion.div>
 
-        {/* CONTENT AREA */}
-        <div className="space-y-24">
-          
-          {/* A. If subEvents exist, render them (Zig-Zag) */}
+        {/* 📂 SUB-EVENTS LIST */}
+        <div className="space-y-32">
           {hasSubEvents ? (
             eventData.subEvents.map((sub, index) => {
-              const isEven = index % 2 === 0
               return (
-                <div
+                <motion.div 
                   key={index}
-                  className={`flex flex-col md:flex-row gap-10 md:gap-20 items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7 }}
+                  className="relative group"
                 >
-                  {/* Image */}
-                  <div className="w-full md:w-1/2">
-                    <div 
-                      className="relative group rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
-                      style={{ boxShadow: `0 0 30px ${eventData.planetAccent}20` }} 
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"/>
-                      <img 
-                        src={sub.image} 
-                        alt={sub.title} 
-                        className="w-full h-[300px] md:h-[400px] object-cover"
-                        onError={(e) => {
-                          e.target.style.display='none'
-                          e.target.nextSibling.style.display='flex'
-                        }}
-                      />
-                      <div className="w-full h-[300px] bg-neutral-900 hidden items-center justify-center text-white/20">
-                        IMAGE NOT FOUND: {sub.image}
-                      </div>
-                    </div>
-                  </div>
+                  {/* Glowing Border Container */}
+                  <div 
+                    className="absolute -inset-0.5 rounded-[2.5rem] opacity-30 blur-lg transition duration-500 group-hover:opacity-60"
+                    style={{ background: `linear-gradient(to right, ${eventData.planetAccent}, transparent, ${eventData.planetAccent})` }}
+                  />
 
-                  {/* Text Details */}
-                  <div className="w-full md:w-1/2 text-left">
-                    <h2 className="text-4xl font-bold mb-4 text-white uppercase tracking-wide">
-                      {sub.title}
-                    </h2>
-                    <p className="text-white/70 text-lg mb-8 leading-relaxed">
-                      {sub.description}
-                    </p>
+                  {/* Glass Card Content */}
+                  <div className="relative bg-[#0a0a0a] border border-white/10 rounded-[2rem] p-6 md:p-10 overflow-hidden">
+                    
+                    {/* Grid Layout */}
+                    <div className="flex flex-col lg:flex-row gap-10">
+                      
+                      {/* 🖼️ LEFT: IMAGE */}
+                      <div className="w-full lg:w-5/12">
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group/image">
+                          {/* Image Overlay Gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
+                          
+                          {/* Tech Corners */}
+                          <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-white/30 z-20 rounded-tl-lg" />
+                          <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-white/30 z-20 rounded-br-lg" />
 
-                    <div className="grid grid-cols-1 gap-4 mb-8 text-sm md:text-base">
-                      <div className="flex items-center gap-3">
-                        <span className="text-white/40 uppercase tracking-widest w-32">Entry Fee:</span>
-                        <span className="font-mono text-white font-bold">{sub.fee}</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <span className="text-white/40 uppercase tracking-widest w-32">Date:</span>
-                        <span className="text-white">{sub.date}</span>
-                      </div>
-                      {sub.rounds && (
-                        <div className="flex items-center gap-3">
-                          <span className="text-white/40 uppercase tracking-widest w-32">Format:</span>
-                          <span className="text-white">{sub.rounds}</span>
+                          <img 
+                            src={sub.image} 
+                            alt={sub.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110 group-hover/image:rotate-1"
+                            onError={(e) => e.target.style.display = 'none'}
+                          />
                         </div>
-                      )}
-                      <div className="flex items-center gap-3">
-                        <span className="text-white/40 uppercase tracking-widest w-32">Prize Pool:</span>
-                        <span className="font-bold" style={{ color: eventData.planetAccent }}>{sub.prize}</span>
+                      </div>
+
+                      {/* 📝 RIGHT: INFO */}
+                      <div className="w-full lg:w-7/12 flex flex-col justify-center">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="h-[2px] w-12 bg-white/20" />
+                          <span className="text-xs font-mono uppercase tracking-widest text-white/50">Classified Event Protocol</span>
+                        </div>
+
+                        <h2 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-wide mb-6 leading-tight">
+                          {sub.title}
+                        </h2>
+                        
+                        <p className="text-white/70 text-lg leading-relaxed mb-8 border-l-2 border-white/10 pl-6">
+                          {sub.description}
+                        </p>
+                        
+                        {/* 📊 HUD STATS GRID */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                          <StatBox 
+                            icon={Calendar} 
+                            label="Date" 
+                            value={sub.date} 
+                            accent={eventData.planetAccent} 
+                          />
+                          <StatBox 
+                            icon={CreditCard} 
+                            label="Fee" 
+                            value={sub.fee} 
+                            accent={eventData.planetAccent} 
+                          />
+                          <StatBox 
+                            icon={Layers} 
+                            label="Format" 
+                            value={sub.rounds} 
+                            accent={eventData.planetAccent} 
+                          />
+                          <StatBox 
+                            icon={Trophy} 
+                            label="Prize Pool" 
+                            value={sub.prize} 
+                            accent={eventData.planetAccent} 
+                            highlight 
+                          />
+                        </div>
+
+                        {/* CTA Button */}
+                        <button 
+                          className="
+                            relative overflow-hidden w-full md:w-auto px-12 py-4 rounded-xl 
+                            font-bold text-black uppercase tracking-[0.2em] 
+                            transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]
+                          "
+                          style={{ backgroundColor: eventData.planetAccent }}
+                        >
+                          <span className="relative z-10 flex items-center justify-center gap-2">
+                            Initialize Registration
+                            <ArrowLeft className="w-5 h-5 rotate-180" />
+                          </span>
+                        </button>
                       </div>
                     </div>
 
-                    <button 
-                      className="px-8 py-3 rounded-lg font-bold text-black uppercase tracking-wider transition-transform hover:scale-105"
-                      style={{ backgroundColor: eventData.planetAccent }}
-                    >
-                      Register | {sub.title}
-                    </button>
+                    {/* 📜 RULEBOOK SECTION */}
+                    {sub.ruleBook && (
+                      <div className="mt-12 pt-10 border-t border-white/5 relative">
+                        {/* Section Header */}
+                        <div className="flex items-center gap-4 mb-8">
+                          <div className="p-3 bg-white/5 rounded-lg border border-white/10">
+                            <Terminal className="w-6 h-6 text-white/80" />
+                          </div>
+                          <h3 className="text-2xl font-bold uppercase tracking-wider">
+                            Rules & Guidelines
+                          </h3>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {sub.ruleBook.map((section, i) => (
+                            <div 
+                              key={i} 
+                              className="
+                                group/card bg-black/40 rounded-xl p-6 border border-white/5 
+                                hover:border-white/10 hover:bg-white/[0.02] transition-colors
+                              "
+                            >
+                              <h4 
+                                className="font-bold uppercase tracking-wider mb-4 text-sm flex items-center gap-2"
+                                style={{ color: eventData.planetAccent }}
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
+                                {section.title}
+                              </h4>
+                              
+                              <ul className="space-y-3">
+                                {section.points.map((point, j) => (
+                                  <li key={j} className="text-white/60 text-sm leading-relaxed flex items-start gap-3 group-hover/card:text-white/80 transition-colors">
+                                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-white/20" />
+                                    <span>{point}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                   </div>
-                </div>
+                </motion.div>
               )
             })
           ) : (
-            /* B. Fallback: If NO subEvents found (prevents empty page) */
-            <div className="text-center p-10 border border-white/20 rounded-2xl bg-white/5">
-              <h2 className="text-2xl font-bold mb-4">Event Details Coming Soon</h2>
-              <p className="text-white/50">Please update events.js to include subEvents.</p>
+            <div className="text-center p-24 border border-dashed border-white/10 rounded-[3rem] bg-white/[0.02]">
+              <h2 className="text-4xl font-bold text-white/20 uppercase tracking-widest">
+                Classified: Coming Soon
+              </h2>
             </div>
           )}
         </div>
 
       </div>
+    </div>
+  )
+}
+
+// 📦 HUD STAT COMPONENT
+function StatBox({ icon: Icon, label, value, accent, highlight }) {
+  return (
+    <div className={`
+      relative p-4 rounded-xl border border-white/5 bg-white/[0.02] 
+      flex flex-col justify-between h-full group
+      ${highlight ? 'bg-white/5 border-white/10' : ''}
+    `}>
+      <div className="mb-3">
+        <Icon 
+          className="w-5 h-5 mb-2 opacity-50 group-hover:opacity-100 transition-opacity" 
+          style={{ color: highlight ? accent : 'white' }} 
+        />
+        <span className="text-[10px] uppercase tracking-widest text-white/30 block font-medium">
+          {label}
+        </span>
+      </div>
+      
+      <span 
+        className={`font-mono font-bold leading-tight ${highlight ? 'text-lg' : 'text-sm text-white/90'}`}
+        style={{ color: highlight ? accent : undefined }}
+      >
+        {value}
+      </span>
     </div>
   )
 }

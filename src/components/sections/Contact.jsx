@@ -58,13 +58,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Email Us</h3>
-                  <div className="space-y-1">
-                    <a href="mailto:contact@gravity2k26.com" className="block text-white/70 hover:text-cyan-400 transition-colors">
-                      contact@gravity2k26.com
+                  <div className="space-y-2">
+                    {/* ✅ UPDATED EMAIL */}
+                    <a href="mailto:gravity2k26@gmail.com" className="block text-white/70 hover:text-cyan-400 transition-colors font-mono">
+                      gravity2k26.tae@kjei.edu.in
                     </a>
-                    <a href="mailto:gdgoc.tae@gmail.com" className="block text-white/70 hover:text-cyan-400 transition-colors">
-                      gdgoc.tae@gmail.com
-                    </a>
+                    
                   </div>
                 </div>
               </div>
@@ -77,11 +76,26 @@ export default function Contact() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">Call Us</h3>
-                  <p className="text-white/50 text-sm mb-1 uppercase tracking-wider">Student Coordinator</p>
-                  <a href="tel:+919767550382" className="text-xl text-white font-mono hover:text-cyan-400 transition-colors">
-                    +91 97675 50382 <span className="text-base text-white/50">(Mayur Patil)</span>
-                  </a>
+                  <h3 className="text-xl font-bold text-white mb-4">Student Coordinators</h3>
+                  
+                  <div className="space-y-4">
+                    {/* Mayur Patil */}
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+                      <a href="tel:+919767550382" className="text-xl text-white font-mono hover:text-cyan-400 transition-colors">
+                        +91 97675 50382
+                      </a>
+                      <span className="text-sm text-white/40 uppercase tracking-widest bg-white/5 px-2 py-1 rounded">Mayur Patil</span>
+                    </div>
+
+                    {/* ✅ ADDED SHAUNAK NAIK */}
+                    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
+                      <a href="tel:+919833953312" className="text-xl text-white font-mono hover:text-cyan-400 transition-colors">
+                        +91 98339 53312
+                      </a>
+                      <span className="text-sm text-white/40 uppercase tracking-widest bg-white/5 px-2 py-1 rounded">Shaunak Naik</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -104,8 +118,8 @@ export default function Contact() {
               loading="lazy" 
               allowFullScreen 
               referrerPolicy="no-referrer-when-downgrade"
-              // Using the coordinates you provided to center the map exactly
-              src="https://maps.google.com/maps?q=18.4215263,73.9058564&z=15&output=embed"
+              // Correct embedded map link for Trinity Academy of Engineering (KJEI)
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.576192135687!2d73.90366771485664!3d18.42152638746764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb5000000001%3A0x6a0487a956162380!2sTrinity%20Academy%20of%20Engineering!5e0!3m2!1sen!2sin!4v1675240000000!5m2!1sen!2sin"
             ></iframe>
             
             {/* Overlay to blend map with dark theme */}

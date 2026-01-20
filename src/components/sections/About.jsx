@@ -48,19 +48,12 @@ function TimeBlock({ label, value }) {
           shadow-[0_0_15px_rgba(6,182,212,0.1)]
         "
       >
-        {/* Top Highlight Line */}
         <div className="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50" />
-        
-        {/* Number */}
         <span className="text-3xl md:text-5xl font-mono font-bold text-white z-10">
           {String(value).padStart(2, '0')}
         </span>
-
-        {/* Inner Glow Hover Effect */}
         <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
-
-      {/* Label */}
       <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-cyan-200/60 mt-3 font-medium">
         {label}
       </span>
@@ -88,7 +81,6 @@ export default function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-10"
         >
-          {/* Decorative Card Container */}
           <div className="
             relative
             bg-white/5 backdrop-blur-2xl 
@@ -97,7 +89,6 @@ export default function About() {
             text-center
             shadow-2xl
           ">
-            {/* Corner Accents (Sci-Fi Look) */}
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-xl opacity-50" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan-400 rounded-br-xl opacity-50" />
 
@@ -158,8 +149,28 @@ export default function About() {
           </div>
 
         </motion.div>
-
       </div>
+
+      {/* 🏆 NEW: OVERALL PRIZE POOL (Added at the bottom of About Section) */}
+      <div className="w-full mt-32 text-center relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-black/20 backdrop-blur-sm py-10 rounded-3xl border border-white/5 mx-auto max-w-5xl"
+        >
+          <h2 className="text-xl md:text-3xl font-bold uppercase tracking-[0.2em] text-cyan-500 mb-4 drop-shadow-lg">
+            Overall Prize Pool
+          </h2>
+          <p 
+            className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-500"
+            style={{ textShadow: '0 0 30px rgba(234, 179, 8, 0.4)' }}
+          >
+            Worth Upto ₹ 4,00,000
+          </p>
+        </motion.div>
+      </div>
+
     </Element>
   )
 }
