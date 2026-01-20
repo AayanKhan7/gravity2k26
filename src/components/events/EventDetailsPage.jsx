@@ -9,7 +9,8 @@ import {
   ArrowLeft, 
   CheckCircle2, 
   Terminal,
-  ShieldAlert 
+  ShieldAlert,
+  ExternalLink // ✅ Imported Icon
 } from "lucide-react"
 
 export default function EventDetailsPage({ eventData }) {
@@ -63,7 +64,7 @@ export default function EventDetailsPage({ eventData }) {
         </Link>
       </nav>
 
-      <div className="pt-40 px-6 md:px-12 max-w-7xl mx-auto relative">
+      <div className="pt-20 md:pt-40 px-4 md:px-6 lg:px-12 max-w-7xl mx-auto relative">
         
         {/* 🚀 MAIN HEADER */}
         <motion.div 
@@ -181,20 +182,22 @@ export default function EventDetailsPage({ eventData }) {
                           />
                         </div>
 
-                        {/* CTA Button */}
-                        <button 
+                        {/* ✅ UPDATED: EXTERNAL LINK BUTTON */}
+                        <a 
+                          href={sub.registrationLink || "#"} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
                           className="
                             relative overflow-hidden w-full md:w-auto px-12 py-4 rounded-xl 
                             font-bold text-black uppercase tracking-[0.2em] 
                             transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)]
+                            flex items-center justify-center gap-2
                           "
                           style={{ backgroundColor: eventData.planetAccent }}
                         >
-                          <span className="relative z-10 flex items-center justify-center gap-2">
-                            Initialize Registration
-                            <ArrowLeft className="w-5 h-5 rotate-180" />
-                          </span>
-                        </button>
+                          Initialize Registration
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
                       </div>
                     </div>
 
@@ -207,7 +210,7 @@ export default function EventDetailsPage({ eventData }) {
                             <Terminal className="w-6 h-6 text-white/80" />
                           </div>
                           <h3 className="text-2xl font-bold uppercase tracking-wider">
-                            Rules & Guidelines
+                            Mission Directives
                           </h3>
                         </div>
                         

@@ -1,80 +1,33 @@
-import { useEffect, useRef, useState } from "react"
 import { EVENTS } from "../../data/events"
 import EventPlanetCard from "./EventPlanetCard"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function PlanetEvents() {
-  const containerRef = useRef(null)
-  
-  // 🎮 ARROW SCROLL HANDLER
-  const scroll = (direction) => {
-    if (containerRef.current) {
-      const { clientWidth } = containerRef.current
-      const scrollAmount = direction === "left" ? -clientWidth : clientWidth
-      containerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" })
-    }
-  }
-
   return (
-    // ✅ Optimized Height: h-[85vh] for mobile, h-[80vh] for desktop
-    <div className="relative h-[85vh] md:h-[80vh] w-full bg-transparent group flex flex-col justify-center"> 
+    <div className="relative w-full max-w-7xl mx-auto px-4 py-12 flex flex-col items-center"> 
       
-      {/* ⬅️ LEFT ARROW BUTTON */}
-      <button 
-        onClick={() => scroll("left")}
-        className="
-          absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50
-          w-10 h-10 md:w-14 md:h-14 rounded-full 
-          bg-white/10 backdrop-blur-md border border-white/20
-          flex items-center justify-center
-          text-white/80 hover:text-white hover:bg-white/20 hover:scale-110 active:scale-95
-          transition-all duration-300
-        "
-        aria-label="Previous Event"
+      {/* 🏆 EVENTS HEADING */}
+      <motion.h1 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-5xl md:text-7xl font-black uppercase tracking-[0.2em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-16 text-center drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
       >
-        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-      </button>
+        Events
+      </motion.h1>
 
-      {/* ➡️ RIGHT ARROW BUTTON */}
-      <button 
-        onClick={() => scroll("right")}
-        className="
-          absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50
-          w-10 h-10 md:w-14 md:h-14 rounded-full 
-          bg-white/10 backdrop-blur-md border border-white/20
-          flex items-center justify-center
-          text-white/80 hover:text-white hover:bg-white/20 hover:scale-110 active:scale-95
-          transition-all duration-300
-        "
-        aria-label="Next Event"
-      >
-        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-      </button>
-
-      {/* EVENTS CONTAINER */}
-      <div
-        ref={containerRef}
-        className="
-          flex 
-          overflow-x-auto 
-          snap-x snap-mandatory 
-          h-full w-full
-          items-center
-          no-scrollbar
-        "
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        <style>{`.no-scrollbar::-webkit-scrollbar { display: none; }`}</style>
-
-        {EVENTS.map((event, index) => (
-          // ✅ Added padding to prevent card sticking to edges
-          <div key={event.id} className="snap-center h-full flex items-center justify-center min-w-full p-4 md:p-0">
+      {/* ✅ GRID LAYOUT: 1 column on mobile, 2 columns on desktop (2x2) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 place-items-center w-full">
+        
+        {EVENTS.map((event) => (
+          <div key={event.id} className="w-full h-full flex justify-center">
             <EventPlanetCard
               event={event}
               isActive={true} 
             />
           </div>
         ))}
+
       </div>
     </div>
   )

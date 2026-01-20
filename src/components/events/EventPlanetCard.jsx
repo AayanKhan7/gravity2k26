@@ -1,61 +1,119 @@
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom" 
-import EventsPlanetScene from "./EventsPlanetScene"
+import { Link } from "react-router-dom"
 
-export default function EventPlanetCard({ event, isActive }) {
+export default function EventPlanetCard({ event }) {
+  // Use the event's specific accent color
+  const accentColor = event.planetAccent || '#06b6d4'; 
+
   return (
-    <div className="w-full md:w-[85vw] max-w-7xl h-full flex items-center justify-center px-2 md:px-16 flex-shrink-0">
+    // ✅ Optimized container for Grid Cell
+    <div className="w-full h-full flex items-stretch justify-center">
       <motion.div
-        animate={{ scale: isActive ? 1 : 0.98 }}
-        transition={{ duration: 0.4 }}
+        whileHover={{ scale: 1.02 }}
+        className="relative w-full group rounded-3xl overflow-hidden flex flex-col"
         style={{
-          border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: `0 0 30px ${event.planetAccent}40`,
+            // Glowing border effect
+            border: `1px solid ${accentColor}60`,
+            boxShadow: `0 0 40px ${accentColor}10, inset 0 0 20px ${accentColor}05`,
         }}
-        className="
-          w-full h-full md:h-auto rounded-3xl bg-black/40 backdrop-blur-xl
-          flex flex-col-reverse md:flex-row gap-4 md:gap-0 p-6 md:p-12
-          relative z-10 overflow-hidden
-        "
       >
-        {/* Background Gradient Mesh */}
-        <div 
-            className="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none"
-            style={{ background: `radial-gradient(circle at 80% 50%, ${event.planetAccent}, transparent 60%)` }}
-        />
-
-        {/* LEFT TEXT CONTENT */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left z-10">
-          <h1
-            className="text-3xl md:text-6xl font-bold tracking-widest mb-4 md:mb-6 uppercase"
-            style={{ color: event.planetAccent, textShadow: `0 0 20px ${event.planetAccent}50` }}
-          >
-            {event.title}
-          </h1>
-
-          <p className="text-white/80 mb-6 md:mb-8 text-sm md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-            {event.description}
-          </p>
-
-          <Link to={event.path}>
-            <button
-              className="px-6 py-2 md:px-8 md:py-3 text-sm md:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:bg-white/10"
-              style={{
-                borderColor: event.planetAccent,
-                color: event.planetAccent,
-                boxShadow: `0 0 15px ${event.planetAccent}30`
-              }}
-            >
-              Explore Event
-            </button>
-          </Link>
+        {/* 🎨 BACKGROUND LAYERS */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-xl z-0">
+            {/* Tech Grid Pattern */}
+            <div 
+                className="absolute inset-0 opacity-[0.05]"
+                style={{
+                    backgroundImage: `linear-gradient(${accentColor} 1px, transparent 1px), linear-gradient(90deg, ${accentColor} 1px, transparent 1px)`,
+                    backgroundSize: '30px 30px'
+                }}
+            />
+            {/* Center Radial Glow */}
+            <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-10 pointer-events-none blur-[80px]"
+                style={{ background: `radial-gradient(circle, ${accentColor}, transparent 70%)` }}
+            />
         </div>
 
-        {/* RIGHT 3D SCENE (Planet) */}
-        <div className="w-full md:w-1/2 flex justify-center items-center h-[250px] md:h-[500px] z-10 relative">
-          <div className="w-full h-full absolute inset-0 md:relative">
-            <EventsPlanetScene planetType={event.planetType} />
+        {/* 📐 HUD CORNER ACCENTS */}
+        <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 rounded-tl-xl z-20 opacity-60" style={{ borderColor: accentColor }} />
+        <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 rounded-tr-xl z-20 opacity-60" style={{ borderColor: accentColor }} />
+        <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 rounded-bl-xl z-20 opacity-60" style={{ borderColor: accentColor }} />
+        <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 rounded-br-xl z-20 opacity-60" style={{ borderColor: accentColor }} />
+
+        {/* 📄 CONTENT CONTAINER */}
+        <div className="relative z-10 flex flex-col items-center justify-between text-center p-8 md:p-12 space-y-6 h-full">
+          
+          <div className="flex flex-col items-center space-y-4 w-full">
+            {/* Event Type Badge */}
+            <div 
+              className="inline-block px-4 py-1 rounded-sm border text-[10px] md:text-xs font-mono uppercase tracking-[0.3em]"
+              style={{ 
+                borderColor: `${accentColor}40`, 
+                color: accentColor, 
+                backgroundColor: `${accentColor}10` 
+              }}
+            >
+              {event.type}
+            </div>
+
+            {/* MAIN TITLE */}
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-none"
+              style={{ 
+                  color: 'white',
+                  textShadow: `0 0 25px ${accentColor}60`
+              }}
+            >
+              {event.title}
+            </h1>
+
+            {/* Decorative Divider */}
+            <div className="flex items-center gap-4 w-full justify-center opacity-30">
+              <div className="h-[1px] w-12 bg-white" />
+              <div className="w-2 h-2 rotate-45 border border-white" />
+              <div className="h-[1px] w-12 bg-white" />
+            </div>
+
+            {/* Description */}
+            <p className="text-white/70 text-sm md:text-base leading-relaxed font-light line-clamp-3">
+              {event.description}
+            </p>
           </div>
+
+          <div className="flex flex-col items-center space-y-6 w-full">
+            {/* Stats Row */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-mono uppercase tracking-wider text-white/50 w-full border-t border-white/5 pt-6">
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] opacity-50">Prize Pool</span>
+                <span style={{ color: accentColor }} className="font-bold">{event.prizePool}</span>
+              </div>
+              <div className="w-[1px] h-8 bg-white/10 hidden md:block" />
+              <div className="flex flex-col items-center">
+                <span className="text-[10px] opacity-50">Entry Fee</span>
+                <span style={{ color: accentColor }} className="font-bold">{event.registrationFee}</span>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <Link to={event.path} className="w-full">
+              <button
+                className="
+                  w-full relative overflow-hidden
+                  px-8 py-3 md:py-4
+                  text-sm md:text-base font-bold uppercase tracking-[0.2em] rounded-sm
+                  transition-all duration-300 hover:brightness-110
+                "
+                style={{
+                  color: '#000',
+                  backgroundColor: accentColor,
+                  boxShadow: `0 0 20px ${accentColor}40`
+                }}
+              >
+                Explore Protocol
+              </button>
+            </Link>
+          </div>
+
         </div>
 
       </motion.div>

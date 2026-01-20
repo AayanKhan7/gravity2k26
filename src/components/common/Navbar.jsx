@@ -100,7 +100,7 @@ export default function Navbar() {
         {/* 🍔 HAMBURGER BUTTON (Mobile Only) */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none p-2 hover:bg-white/5 rounded-lg transition-colors"
         >
           {isOpen ? (
             // Close Icon

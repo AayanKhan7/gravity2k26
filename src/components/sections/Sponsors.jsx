@@ -2,6 +2,20 @@ import { Element } from 'react-scroll'
 import { motion } from 'framer-motion'
 import { memo } from 'react'
 
+// ✅ SPONSOR DATA
+const SPONSORS = [
+  {
+    name: "Rahitech Solution",
+    logo: "/assets/images/rahitech.jpeg", // Image file location
+    link: "https://rahitech.com/" // Optional: Add link if available
+  },
+  {
+    name: "Mile 2",
+    logo: "/assets/images/MILE-2-LOGO.webp", // Image file location
+    link: "#"
+  }
+]
+
 const Sponsors = memo(function Sponsors() {
 
   return (
@@ -27,30 +41,43 @@ const Sponsors = memo(function Sponsors() {
           </p>
         </motion.div>
 
-        {/* COMING SOON PLACEHOLDER */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="
-            relative w-full py-32 px-6
-            flex flex-col items-center justify-center text-center
-            bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl
-            overflow-hidden
-            group
-          "
-        >
-          {/* Background Glow Effect */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-500/10 blur-[100px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-1000" />
-          
-          <h3 className="relative z-10 text-3xl md:text-6xl font-black text-white/20 uppercase tracking-widest group-hover:text-white/30 transition-colors duration-500">
-            Coming Soon
-          </h3>
-          <p className="relative z-10 text-white/40 mt-4 font-mono text-sm tracking-wider">
-            [ CLASSIFIED DATA ]
-          </p>
-        </motion.div>
+        {/* ✅ SPONSORS GRID (Replaces "Coming Soon") */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 place-items-center mb-20">
+          {SPONSORS.map((sponsor, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              className="
+                group relative w-full max-w-sm aspect-[3/2]
+                bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl
+                flex items-center justify-center p-8
+                shadow-[0_0_30px_rgba(0,0,0,0.3)]
+                hover:border-cyan-500/30 hover:shadow-[0_0_40px_rgba(6,182,212,0.15)]
+                transition-all duration-300
+              "
+            >
+              {/* Background Glow on Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
+
+              {/* Sponsor Logo */}
+              <img 
+                src={sponsor.logo} 
+                alt={sponsor.name}
+                className="w-full h-full object-contain filter drop-shadow-lg"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  // Show fallback text
+                  e.currentTarget.parentElement.innerHTML = `<div class="text-white/30 text-center font-mono text-sm">${sponsor.name}</div>`;
+                }}
+              />
+            </motion.div>
+          ))}
+        </div>
 
         {/* CTA */}
         <motion.div 
@@ -58,11 +85,10 @@ const Sponsors = memo(function Sponsors() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-center mt-20"
+          className="text-center mt-10"
         >
           <p className="text-white/50 mb-4">Want to partner with us?</p>
           
-          {/* ✅ FIXED PATH: /assets/images/docs/... */}
           <a 
             href="/assets/images/docs/Gravity_Brochure.pdf" 
             download="Gravity_2K26_Brochure.pdf"

@@ -59,8 +59,8 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">Email Us</h3>
                   <div className="space-y-2">
-                    {/* ✅ UPDATED EMAIL */}
-                    <a href="mailto:gravity2k26@gmail.com" className="block text-white/70 hover:text-cyan-400 transition-colors font-mono">
+                    {/* ✅ FIXED: Email match corrected */}
+                    <a href="mailto:gravity2k26.tae@kjei.edu.in" className="block text-white/70 hover:text-cyan-400 transition-colors font-mono">
                       gravity2k26.tae@kjei.edu.in
                     </a>
                     
@@ -107,7 +107,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl"
+            className="h-full min-h-[300px] md:min-h-[400px] rounded-2xl overflow-hidden border border-white/10 relative shadow-2xl"
           >
             {/* GOOGLE MAP IFRAME */}
             <iframe 

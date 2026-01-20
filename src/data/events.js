@@ -24,6 +24,9 @@ export const EVENTS = [
         rounds: "PPT Submission -> Final Pitch",
         prize: "Prize Money worth upto 1 Lakh",
         
+        // ✅ ADDED LINK
+        registrationLink: "https://unstop.com/o/gsntyRz?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
+        
         ruleBook: [
           {
             title: "Proposed Domains",
@@ -102,6 +105,9 @@ export const EVENTS = [
         date: "21 Feb 2026",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 50k",
+
+        // ✅ ADDED LINK
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdyn4ewc8RtCQjE7nt-A35YJ7R9H90IxMPCS5cW1wCWrdLV1A/viewform?usp=header",
 
         ruleBook: [
           {
@@ -295,7 +301,6 @@ export const EVENTS = [
         ]
       },
 
-      // ✅ UPDATED PHARMASPARK (Prev. PharmaTech)
       {
         title: "PHARMASPARK",
         description: "Pharmacy-focused model-making competition that encourages participants to design innovative solutions addressing real-world challenges in the pharmaceutical domain.",
@@ -360,6 +365,9 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Custom Match",
         prize: "Worth Upto 15k",
+        // ✅ ADDED LINK
+        registrationLink: "https://unstop.com/o/6DblX3j?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
+        
         ruleBook: [
           {
             title: "Rules & Regulations",
@@ -390,6 +398,9 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Single Match",
         prize: "Worth Upto 15k",
+        // ✅ ADDED LINK
+        registrationLink: "https://unstop.com/o/gsntyRz?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
+        
         ruleBook: [
           {
             title: "Rules & Regulations",
@@ -420,6 +431,9 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Knockout",
         prize: "Worth Upto 15k",
+        // ✅ ADDED LINK
+        registrationLink: "https://unstop.com/o/b3gAD4V?utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
+        
         ruleBook: [
           {
             title: "Rules & Regulations",
