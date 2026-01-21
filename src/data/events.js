@@ -162,7 +162,7 @@ export const EVENTS = [
     planetAccent: '#3f8cff', // Kept as Blue
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, or PharmaTech.",
-    prizePool: 'Prize money worth upto 120k',
+    prizePool: 'Prize money worth upto 1 Lakh 20k',
     registrationFee: '199 per team',
     teamSize: 'Varies',
 
@@ -338,7 +338,7 @@ export const EVENTS = [
         fee: "₹199 / TEAM",
         date: "20 Feb",
         rounds: "Poster -> Model",
-        prize: "Prize money worth upto 45k",
+        prize: "Prize money worth upto 30k",
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
@@ -398,7 +398,7 @@ export const EVENTS = [
     planetAccent: '#66d1c1', // Kept as Teal
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
-    prizePool: 'Prize money worth upto 15k',
+    prizePool: 'Prize money worth upto 45k',
     registrationFee: '199 per team',
     teamSize: 'Squad Based',
 
