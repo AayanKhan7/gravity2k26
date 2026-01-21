@@ -11,7 +11,7 @@ const SPONSORS = [
   },
   {
     name: "DigiCat",
-    logo: "/assets/images/DIGICAT_LOGO-removebg-preview.png",
+    logo: "/assets/images/DIGICAT LOGO.jpeg",
     link: "#"
   },
   {
@@ -21,7 +21,7 @@ const SPONSORS = [
   },
   {
     name: "VH Tech",
-    logo: "/assets/images/Logo VH TECH.png",
+    logo: "/assets/images/logo vht.jpeg",
     link: "#"
   },
   {
