@@ -2,16 +2,36 @@ import { Element } from 'react-scroll'
 import { motion } from 'framer-motion'
 import { memo } from 'react'
 
-// ✅ SPONSOR DATA
+// ✅ UPDATED SPONSOR LIST
 const SPONSORS = [
   {
     name: "Rahitech Solution",
-    logo: "/assets/images/rahitech.jpeg", // Image file location
-    link: "https://rahitech.com/" // Optional: Add link if available
+    logo: "/assets/images/rahitech.jpeg",
+    link: "https://rahitech.com/"
   },
   {
     name: "Mile 2",
-    logo: "/assets/images/MILE-2-LOGO.webp", // Image file location
+    logo: "/assets/images/MILE-2-LOGO.webp",
+    link: "#"
+  },
+  {
+    name: "DigiGhar",
+    logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png", // Added
+    link: "#"
+  },
+  {
+    name: "DigiCat",
+    logo: "/assets/images/DIGICAT LOGO.jpeg", // Added
+    link: "#"
+  },
+  {
+    name: "Puneri Pattern",
+    logo: "/assets/images/Puneri pattern logo.png", // Added
+    link: "#"
+  },
+  {
+    name: "VH Tech",
+    logo: "/assets/images/logo vht.jpeg", // Added
     link: "#"
   }
 ]
@@ -41,8 +61,8 @@ const Sponsors = memo(function Sponsors() {
           </p>
         </motion.div>
 
-        {/* ✅ SPONSORS GRID (Replaces "Coming Soon") */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 place-items-center mb-20">
+        {/* ✅ SPONSORS GRID (2 Columns for 6 items looks balanced) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center mb-20">
           {SPONSORS.map((sponsor, index) => (
             <motion.div
               key={index}
@@ -52,7 +72,7 @@ const Sponsors = memo(function Sponsors() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
               className="
-                group relative w-full max-w-sm aspect-[3/2]
+                group relative w-full max-w-xs aspect-[3/2]
                 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl
                 flex items-center justify-center p-8
                 shadow-[0_0_30px_rgba(0,0,0,0.3)]
@@ -71,8 +91,7 @@ const Sponsors = memo(function Sponsors() {
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  // Show fallback text
-                  e.currentTarget.parentElement.innerHTML = `<div class="text-white/30 text-center font-mono text-sm">${sponsor.name}</div>`;
+                  e.currentTarget.parentElement.innerHTML += `<div class="text-white/30 text-center font-mono text-sm">${sponsor.name}</div>`;
                 }}
               />
             </motion.div>

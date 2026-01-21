@@ -144,7 +144,7 @@ export default function About() {
           <div className="mt-10 flex flex-col md:flex-row gap-6 justify-center lg:justify-start">
              <div className="flex items-center gap-4">
                 <div className="h-[2px] w-12 bg-cyan-500/50" />
-                <span className="text-cyan-300 font-mono text-sm tracking-widest">EST. 2026</span>
+                <span className="text-cyan-300 font-mono text-sm tracking-widest">LAUNCH. 2026</span>
              </div>
           </div>
 

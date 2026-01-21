@@ -24,8 +24,8 @@ export const EVENTS = [
         rounds: "PPT Submission -> Final Pitch",
         prize: "Prize Money worth upto 1 Lakh",
         
-        // ✅ ADDED LINK
-        registrationLink: "https://unstop.com/o/gsntyRz?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
+        // ✅ REGISTRATION LINK
+        registrationLink: "https://unstop.com/o/ys53oDj?lb=Qq066NCo&utm_medium=Share&utm_source=mayurpat57712&utm_campaign=Competitions",
         
         ruleBook: [
           {
@@ -93,7 +93,7 @@ export const EVENTS = [
     path: '/cineclash',
     description: "Direct, edit, and showcase your cinematic saga. A digital marketing–oriented competition to encourage storytelling and branding.",
     prizePool: 'Prize money worth upto 50k', 
-    registrationFee: '₹499 per team',
+    registrationFee: '₹399 per team',
     teamSize: 'Individual or Team',
 
     subEvents: [
@@ -101,13 +101,14 @@ export const EVENTS = [
         title: "CineClash Competition",
         description: "Create a short film aligning with the theme. Round 1 focuses on promotion (trailer), Round 2 on content quality.",
         image: "/assets/images/cineclash.png", 
-        fee: "₹499 / Team",
+        fee: "₹399 / Team",
         date: "21 Feb 2026",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 50k",
 
-        // ✅ ADDED LINK
-        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdyn4ewc8RtCQjE7nt-A35YJ7R9H90IxMPCS5cW1wCWrdLV1A/viewform?usp=header",
+        // ✅ REGISTRATION LINK
+        registrationLink:"https://unstop.com/o/qZBsVWS?lb=Jmp6eNQX&utm_medium=Share&utm_source=shindshr10671&utm_campaign=Events",
+  
 
         ruleBook: [
           {
@@ -161,7 +162,7 @@ export const EVENTS = [
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, or PharmaTech.",
     prizePool: 'Prize money worth upto 30k',
-    registrationFee: 'Varies',
+    registrationFee: '199 per team',
     teamSize: 'Varies',
 
     subEvents: [
@@ -169,11 +170,14 @@ export const EVENTS = [
         title: "FrameForge (Robotics)",
         description: "Design a line-following vehicle with a modular cage. No glue/welding allowed—only mechanical locking.",
         image: "/assets/images/frameforge.png",
-        fee: "₹200 / Team", 
+        fee: "₹199 / Team", 
         date: "20 Feb", 
         rounds: "Single Round Race",
         prize: "Prize money worth upto 30k",
         
+        // ✅ REGISTRATION LINK (Updated)
+        registrationLink: "https://unstop.com/o/hQJqevc?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
+
         ruleBook: [
           {
             title: "Event Overview",
@@ -222,10 +226,14 @@ export const EVENTS = [
         title: "BUG 2 BUILD (Coding)",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
         image: "/assets/images/bug2build.png",
-        fee: "Free Registration",
+        fee: "₹199 / Team",
         date: "20 Feb",
         rounds: "5 Rounds",
         prize: "Prize money worth upto 30k",
+        
+        // ✅ REGISTRATION LINK (Updated)
+        registrationLink: "https://unstop.com/o/tbz4deB?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Online_coding_challenge",
+
         ruleBook: [
           {
             title: "Event Overview",
@@ -277,25 +285,54 @@ export const EVENTS = [
       
       {
         title: "Infrathon (Model Making)",
-        description: "Model Making building the best from everyday materials.",
+        // ✅ UPDATED DESCRIPTION
+        description: "Hands-on infrastructure design challenge testing creativity, logic, and core civil/architecture knowledge.",
         image: "/assets/images/infrathon.png",
         fee: "₹199 / Team",
         date: "20 Feb",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 30k",
+        
+        // ✅ REGISTRATION LINK (Updated)
+        registrationLink: "https://unstop.com/o/WVmXUKI?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Events",
+
+        // ✅ UPDATED RULEBOOK
         ruleBook: [
           {
-            title: "Event Details",
+            title: "About the Event",
             points: [
-              "Team Composition: 2-4 people",
-              "Thrust Area: Creativity, Logic, Civil/Architecture knowledge."
+              "A hands-on infrastructure design challenge that tests creativity, logic, and core civil/architecture knowledge.",
+              "Participants design structural models using limited resources while applying practical engineering principles."
             ]
           },
           {
-            title: "Round Structure",
+            title: "Thrust Area",
             points: [
-              "Round 1 - Making skyscrapers from newspapers",
-              "Round 2 - Bridge making, making the most endurable bridge."
+              "Creativity and structural innovation",
+              "Logical design and load distribution",
+              "Civil engineering & architectural fundamentals"
+            ]
+          },
+          {
+            title: "Team Composition",
+            points: [
+              "Teams of 2–4 participants",
+              "Inter-department participation allowed"
+            ]
+          },
+          {
+            title: "Competition Format",
+            points: [
+              "Round 1: Skyscraper Challenge – Construct a skyscraper using newspapers, focusing on height, stability, and material efficiency.",
+              "Round 2: Bridge Endurance Challenge – Qualified teams design a bridge with maximum load-bearing capacity, tested for strength and durability."
+            ]
+          },
+          {
+            title: "Evaluation Criteria",
+            points: [
+              "Structural strength and stability",
+              "Innovation and design logic",
+              "Efficient use of materials"
             ]
           }
         ]
@@ -303,37 +340,60 @@ export const EVENTS = [
 
       {
         title: "PHARMASPARK",
-        description: "Pharmacy-focused model-making competition that encourages participants to design innovative solutions addressing real-world challenges in the pharmaceutical domain.",
+        // ✅ UPDATED DESCRIPTION
+        description: "Pharmacy-focused competition promoting innovation and scientific thinking. Theme: Indian Pharma for Global Wellbeing.",
         image: "/assets/images/pharmatech.png",
-        fee: "₹250 / Team",
+        // ✅ UPDATED FEE
+       fee: "₹199 / TEAM",
         date: "20 Feb",
-        rounds: "Presentation",
+        // ✅ UPDATED ROUNDS
+        rounds: "Poster -> Model",
         prize: "Prize money worth upto 30k",
+        
+        // ✅ REGISTRATION LINK (Updated)
+        registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
+
+        // ✅ UPDATED RULEBOOK
         ruleBook: [
           {
-            title: "Event Overview",
+            title: "Theme & Eligibility",
             points: [
-              "Team Composition: Team of 2-4",
-              "Theme: Participants are expected to create conceptual or working models that simplify, improve, or modernize processes within the pharmaceutical ecosystem."
+              "Theme: Indian Pharma for Global Wellbeing",
+              "Team Composition: Teams of up to 3 participants",
+              "Participation is limited to Pharmacy students only."
             ]
           },
           {
-            title: "Model Requirements",
+            title: "Round 1: Poster Presentation",
             points: [
-              "Models can be working or conceptual",
-              "Solutions must be relevant to the pharmaceutical domain",
-              "The idea should focus on practical application and feasibility",
-              "Models should clearly demonstrate the problem–solution approach"
+              "Present a scientific poster highlighting innovative ideas related to pharmaceutical sciences.",
+              "Poster Size: 1m × 1m (Mandatory)",
+              "Structure: Introduction, Methodology, Results, Conclusion, Recommendations.",
+              "No personal details on the poster.",
+              "Participants must report 15 minutes before schedule."
+            ]
+          },
+          {
+            title: "Round 2: Model Making",
+            points: [
+              "Shortlisted teams present a pharmaceutical science–based model.",
+              "Must be supported by a self-explanatory poster or PPT.",
+              "Any suitable materials can be used.",
+              "Explanation time: 4–5 minutes per team."
             ]
           },
           {
             title: "Evaluation Criteria",
             points: [
-              "Innovation and creativity",
-              "Relevance to pharmaceutical challenges",
-              "Practical applicability and feasibility",
-              "Clarity of explanation and presentation",
-              "Overall impact of the solution"
+              "Round 1: Relevance, Originality, Visual Appeal, Effectiveness of Communication.",
+              "Round 2: Model Selection, Design & Fabrication, Explanation, Aesthetic Appeal."
+            ]
+          },
+          {
+            title: "Awards",
+            points: [
+              "Top three teams will receive prizes and certificates.",
+              "Participation certificates will be provided to all."
             ]
           }
         ]
@@ -353,7 +413,7 @@ export const EVENTS = [
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
     prizePool: 'Prize money worth upto 15k',
-    registrationFee: 'Varies',
+    registrationFee: '₹199 per team',
     teamSize: 'Squad Based',
 
     subEvents: [
@@ -361,11 +421,12 @@ export const EVENTS = [
         title: "BGMI",
         description: "Adrenaline-fueled battleground. Map toss determines side. Best of 1 elimination.",
         image: "/assets/images/bgmi.png",
-        fee: "₹200 / Squad",
+        fee: "₹199 / Squad",
         date: "21 FEB",
         rounds: "Custom Match",
         prize: "Worth Upto 15k",
-        // ✅ ADDED LINK
+        
+        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/6DblX3j?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
         
         ruleBook: [
@@ -394,11 +455,12 @@ export const EVENTS = [
         title: "Valorant",
         description: "5v5 Tactical Shooter. Team up, strategize, and dominate. Single match elimination.",
         image: "/assets/images/valorant.png",
-        fee: "₹400 / Team",
+        fee: "₹199 / Team",
         date: "21 FEB",
         rounds: "Single Match",
         prize: "Worth Upto 15k",
-        // ✅ ADDED LINK
+        
+        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/gsntyRz?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
         
         ruleBook: [
@@ -427,11 +489,12 @@ export const EVENTS = [
         title: "Free Fire",
         description: "Fast-paced survival shooter on mobile. Be the last squad standing. Knockout format.",
         image: "/assets/images/freefire.png",
-        fee: "₹150 / Squad",
+        fee: "₹199 / Squad",
         date: "21 FEB",
         rounds: "Knockout",
         prize: "Worth Upto 15k",
-        // ✅ ADDED LINK
+        
+        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/b3gAD4V?utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
         
         ruleBook: [

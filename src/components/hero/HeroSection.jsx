@@ -1,8 +1,6 @@
 import React, { useRef } from "react"
 import { Link } from "react-scroll"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { SITE_CONFIG } from "../../data/index.js"
-// ❌ DELETE THIS LINE: import Navbar from "../common/Navbar"
 
 export default function HeroSection() {
   const ref = useRef(null)
@@ -19,36 +17,16 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="hero-overlay"
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        width: "100%",
-        height: "100vh",
-      }}
+      className="hero-overlay relative w-full h-screen overflow-hidden"
     >
-      {/* ❌ DELETE THE NAVBAR DIV BLOCK THAT WAS HERE */}
-
       {/* HERO CONTENT */}
-      <div
-        className="hero-content"
-        style={{
-          position: "relative",
-          zIndex: 40,
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          textAlign: "center",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
-        }}
-      >
+      <div className="relative z-40 h-full flex flex-col justify-center items-center text-center px-4">
+        
+        {/* LOGO */}
         <motion.img
           src="/assets/images/Gravity logo.PNG"
           alt="Gravity 2K26"
-          className="h-[180px] md:h-[320px] w-auto mb-6 md:mb-10 drop-shadow-[0_0_40px_rgba(255,255,255,0.35)]"
+          className="h-[180px] md:h-[320px] w-auto mb-12 drop-shadow-[0_0_40px_rgba(255,255,255,0.35)]"
           style={{
             maxWidth: "90vw",
             y: logoY,
@@ -56,15 +34,21 @@ export default function HeroSection() {
           }}
         />
 
-        <p className="hero-subtitle text-white/90 text-sm md:text-lg mb-8 md:mb-10 tracking-widest uppercase font-medium">
-          {SITE_CONFIG?.tagline || "THE ULTIMATE TECHFEST"}
-        </p>
-
+        {/* CTA BUTTON */}
         <Link to="events" smooth offset={-100} duration={600}>
-          <button className="hero-btn primary px-6 py-2 md:px-8 md:py-3 text-sm md:text-base rounded-full bg-white text-black font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+          <button className="
+            group
+            px-8 py-3 md:px-10 md:py-4 
+            text-sm md:text-base font-bold 
+            rounded-full bg-white text-black 
+            shadow-[0_0_20px_rgba(255,255,255,0.4)] 
+            hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)]
+            transition-all duration-300
+          ">
             Explore Events
           </button>
         </Link>
+
       </div>
     </section>
   )
