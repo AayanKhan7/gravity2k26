@@ -3,6 +3,14 @@ import EventPlanetCard from "./EventPlanetCard"
 import { motion } from "framer-motion"
 
 export default function PlanetEvents() {
+  if (!EVENTS || EVENTS.length === 0) {
+    return (
+      <div className="relative w-full max-w-7xl mx-auto px-4 py-12 flex flex-col items-center text-center">
+        <p className="text-white/50 font-mono">No events available</p>
+      </div>
+    )
+  }
+
   return (
     <div className="relative w-full max-w-7xl mx-auto px-4 py-12 flex flex-col items-center"> 
       

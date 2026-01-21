@@ -32,6 +32,10 @@ export default function HeroSection() {
             y: logoY,
             scale: logoScale,
           }}
+          onError={(e) => {
+            console.error('Logo image failed to load');
+            e.currentTarget.style.display = 'none';
+          }}
         />
 
         {/* CTA BUTTON */}

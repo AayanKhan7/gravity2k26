@@ -24,10 +24,10 @@ const LoadingSpinner = () => (
 )
 
 function App() {
-  const pitchData = EVENTS.find(e => e.id === 'pitch-perfect')
-  const cineData = EVENTS.find(e => e.id === 'cineclash')
-  const quadrantData = EVENTS.find(e => e.id === 'quadrant')
-  const nexusData = EVENTS.find(e => e.id === 'nexus')
+  const pitchData = EVENTS?.find(e => e.id === 'pitch-perfect')
+  const cineData = EVENTS?.find(e => e.id === 'cineclash')
+  const quadrantData = EVENTS?.find(e => e.id === 'quadrant')
+  const nexusData = EVENTS?.find(e => e.id === 'nexus')
 
   return (
     <Router>

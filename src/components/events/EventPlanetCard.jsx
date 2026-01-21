@@ -10,7 +10,7 @@ export default function EventPlanetCard({ event }) {
     <div className="w-full h-full flex items-stretch justify-center">
       <motion.div
         whileHover={{ scale: 1.02 }}
-        className="relative w-full group rounded-3xl overflow-hidden flex flex-col"
+        className="relative w-full group rounded-3xl overflow-hidden flex flex-col bg-black"
         style={{
             // Glowing border effect
             border: `1px solid ${accentColor}60`,
@@ -18,20 +18,19 @@ export default function EventPlanetCard({ event }) {
         }}
       >
         {/* 🎨 BACKGROUND LAYERS */}
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-xl z-0">
-            {/* Tech Grid Pattern */}
+        <div className="absolute inset-0 z-0">
+            {/* Background Image */}
             <div 
-                className="absolute inset-0 opacity-[0.05]"
-                style={{
-                    backgroundImage: `linear-gradient(${accentColor} 1px, transparent 1px), linear-gradient(90deg, ${accentColor} 1px, transparent 1px)`,
-                    backgroundSize: '30px 30px'
-                }}
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style={{ 
+                backgroundImage: `url(${event.villainImg})`,
+                // Fallback background in case image fails to load
+                backgroundColor: '#0a0a0a' 
+              }}
             />
-            {/* Center Radial Glow */}
-            <div 
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-10 pointer-events-none blur-[80px]"
-                style={{ background: `radial-gradient(circle, ${accentColor}, transparent 70%)` }}
-            />
+            
+            {/* 🌑 Gradient Overlay for Text Readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-90" />
         </div>
 
         {/* 📐 HUD CORNER ACCENTS */}
@@ -46,11 +45,10 @@ export default function EventPlanetCard({ event }) {
           <div className="flex flex-col items-center space-y-4 w-full">
             {/* Event Type Badge */}
             <div 
-              className="inline-block px-4 py-1 rounded-sm border text-[10px] md:text-xs font-mono uppercase tracking-[0.3em]"
+              className="inline-block px-4 py-1 rounded-sm border text-[10px] md:text-xs font-mono uppercase tracking-[0.3em] backdrop-blur-md bg-black/40"
               style={{ 
                 borderColor: `${accentColor}40`, 
                 color: accentColor, 
-                backgroundColor: `${accentColor}10` 
               }}
             >
               {event.type}
@@ -75,14 +73,14 @@ export default function EventPlanetCard({ event }) {
             </div>
 
             {/* Description */}
-            <p className="text-white/70 text-sm md:text-base leading-relaxed font-light line-clamp-3">
+            <p className="text-white/80 text-sm md:text-base leading-relaxed font-light line-clamp-3 drop-shadow-md">
               {event.description}
             </p>
           </div>
 
           <div className="flex flex-col items-center space-y-6 w-full">
             {/* Stats Row */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm font-mono uppercase tracking-wider text-white/50 w-full border-t border-white/5 pt-6">
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-mono uppercase tracking-wider text-white/70 w-full border-t border-white/10 pt-6">
               <div className="flex flex-col items-center">
                 <span className="text-[10px] opacity-50">Prize Pool</span>
                 <span style={{ color: accentColor }} className="font-bold">{event.prizePool}</span>

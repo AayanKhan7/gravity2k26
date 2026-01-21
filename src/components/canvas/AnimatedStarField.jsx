@@ -11,6 +11,13 @@ export default function AnimatedStarField() {
   useEffect(() => {
     // 3000 for Desktop, 1500 for Mobile to fix lag
     setStarCount(window.innerWidth > 768 ? 3000 : 1500)
+
+    const handleResize = () => {
+      setStarCount(window.innerWidth > 768 ? 3000 : 1500)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
   
   const { positions, originalPositions, sizes } = useMemo(() => {

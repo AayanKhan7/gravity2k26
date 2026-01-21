@@ -61,6 +61,10 @@ export default function Gallery() {
                   transition-transform duration-700 ease-in-out
                   group-hover:scale-110
                 "
+                onError={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, rgba(147,51,234,0.3), rgba(168,85,247,0.2))';
+                  e.currentTarget.style.display = 'none';
+                }}
               />
 
               {/* OVERLAY & TEXT */}

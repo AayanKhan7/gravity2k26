@@ -28,7 +28,7 @@ function useCountdown(targetDate) {
       setTimeLeft(getTimeLeft())
     }, 1000)
     return () => clearInterval(interval)
-  }, [])
+  }, [targetDate])
 
   return timeLeft
 }

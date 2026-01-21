@@ -2,27 +2,51 @@ import { Element } from 'react-scroll'
 import { motion } from 'framer-motion'
 import { memo } from 'react'
 
-// ✅ UPDATED SPONSOR LIST
+// ✅ UPDATED SPONSOR LIST (Confirmed: Rahitech & Mile 2 Removed)
 const SPONSORS = [
- 
   {
     name: "DigiGhar",
-    logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png", // Added
+    logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png",
     link: "#"
   },
   {
     name: "DigiCat",
-    logo: "/assets/images/DIGICAT LOGO.jpeg", // Added
+    logo: "/assets/images/DIGICAT_LOGO-removebg-preview.png",
     link: "#"
   },
   {
     name: "Puneri Pattern",
-    logo: "/assets/images/Puneri pattern logo.png", // Added
+    logo: "/assets/images/Puneri pattern logo.png",
     link: "#"
   },
   {
     name: "VH Tech",
-    logo: "/assets/images/logo vht.jpeg", // Added
+    logo: "/assets/images/Logo VH TECH.png",
+    link: "#"
+  },
+  {
+    name: "IST",
+    logo: "/assets/images/IST_logo-removebg-preview.png",
+    link: "#"
+  },
+  {
+    name: "Celestia",
+    logo: "/assets/images/CELESTIA_logo-removebg-preview.png",
+    link: "#"
+  },
+  {
+    name: "GDG on Campus",
+    logo: "/assets/images/GDG_FINAL_CUT-removebg-preview.png",
+    link: "#"
+  },
+  {
+    name: "IEEE",
+    logo: "/assets/images/IEEE-Logo-removebg-preview.png",
+    link: "#"
+  },
+  {
+    name: "IEEE TAE Student Branch",
+    logo: "/assets/images/IEEELOGO2-removebg-preview.png",
     link: "#"
   }
 ]
@@ -52,7 +76,7 @@ const Sponsors = memo(function Sponsors() {
           </p>
         </motion.div>
 
-        {/* ✅ SPONSORS GRID (2 Columns for 6 items looks balanced) */}
+        {/* ✅ SPONSORS GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center mb-20">
           {SPONSORS.map((sponsor, index) => (
             <motion.div
@@ -63,9 +87,9 @@ const Sponsors = memo(function Sponsors() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05 }}
               className="
-                group relative w-full max-w-xs aspect-[3/2]
+                group relative w-full max-w-xs h-48
                 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl
-                flex items-center justify-center p-8
+                flex flex-col items-center justify-center p-6
                 shadow-[0_0_30px_rgba(0,0,0,0.3)]
                 hover:border-cyan-500/30 hover:shadow-[0_0_40px_rgba(6,182,212,0.15)]
                 transition-all duration-300
@@ -75,16 +99,39 @@ const Sponsors = memo(function Sponsors() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
 
               {/* Sponsor Logo */}
+              {/* Moves up and shrinks slightly on hover to make room for text */}
               <img 
                 src={sponsor.logo} 
                 alt={sponsor.name}
-                className="w-full h-full object-contain filter drop-shadow-lg"
+                className="
+                  w-full h-full object-contain filter drop-shadow-lg 
+                  opacity-90 group-hover:opacity-100 
+                  transition-all duration-300
+                  group-hover:-translate-y-4 group-hover:scale-90
+                "
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement.innerHTML += `<div class="text-white/30 text-center font-mono text-sm">${sponsor.name}</div>`;
+                  const fallback = e.currentTarget.parentElement?.querySelector('.fallback-text');
+                  if (fallback) {
+                    fallback.style.opacity = '1';
+                    fallback.style.pointerEvents = 'auto';
+                  }
                 }}
               />
+
+              {/* Sponsor Name (Appears below on hover) */}
+              <div className="
+                absolute bottom-4 left-0 right-0 text-center
+                text-cyan-300 font-mono text-sm tracking-widest uppercase font-bold
+                opacity-0 translate-y-4
+                group-hover:opacity-100 group-hover:translate-y-0
+                transition-all duration-300
+                fallback-text
+              ">
+                {sponsor.name}
+              </div>
+
             </motion.div>
           ))}
         </div>

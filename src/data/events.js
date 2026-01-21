@@ -15,6 +15,9 @@ export const EVENTS = [
     registrationFee: '₹499 per team',
     teamSize: 'Up to 4 members',
     
+    // ✅ ADDED IMAGE PATH
+    villainImg: "/assets/images/pitchperfect1.png", 
+    
     subEvents: [
       {
         title: "Pitch Perfect Main Event",
@@ -24,10 +27,7 @@ export const EVENTS = [
         date: "20 Feb 2026",
         rounds: "PPT Submission -> Final Pitch",
         prize: "Prize Money worth upto 1 Lakh",
-        
-        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/ys53oDj?lb=Qq066NCo&utm_medium=Share&utm_source=mayurpat57712&utm_campaign=Competitions",
-        
         ruleBook: [
           {
             title: "Proposed Domains",
@@ -98,6 +98,9 @@ export const EVENTS = [
     registrationFee: '₹399 per team',
     teamSize: 'Individual or Team',
 
+    // ✅ ADDED IMAGE PATH
+    villainImg: "/assets/images/cineclash1.png",
+
     subEvents: [
       {
         title: "CineClash Competition",
@@ -107,10 +110,7 @@ export const EVENTS = [
         date: "21 Feb 2026",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 50k",
-
-        // ✅ REGISTRATION LINK
         registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdyn4ewc8RtCQjE7nt-A35YJ7R9H90IxMPCS5cW1wCWrdLV1A/viewform?usp=header",
-
         ruleBook: [
           {
             title: "Event Objectives",
@@ -166,6 +166,9 @@ export const EVENTS = [
     registrationFee: '199 per team',
     teamSize: 'Varies',
 
+    // ✅ ADDED IMAGE PATH
+    villainImg: "/assets/images/quadrant.png",
+
     subEvents: [
       {
         title: "FrameForge (Robotics)",
@@ -175,10 +178,7 @@ export const EVENTS = [
         date: "20 Feb", 
         rounds: "Single Round Race",
         prize: "Prize money worth upto 30k",
-        
-        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/hQJqevc?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
-
         ruleBook: [
           {
             title: "Event Overview",
@@ -231,10 +231,7 @@ export const EVENTS = [
         date: "20 Feb",
         rounds: "5 Rounds",
         prize: "Prize money worth upto 30k",
-        
-        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/tbz4deB?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Online_coding_challenge",
-
         ruleBook: [
           {
             title: "Event Overview",
@@ -286,18 +283,13 @@ export const EVENTS = [
       
       {
         title: "Infrathon (Model Making)",
-        // ✅ UPDATED DESCRIPTION
         description: "Hands-on infrastructure design challenge testing creativity, logic, and core civil/architecture knowledge.",
         image: "/assets/images/infrathon.png",
         fee: "₹199 / Team",
         date: "20 Feb",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 30k",
-        
-        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/WVmXUKI?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Events",
-
-        // ✅ UPDATED RULEBOOK
         ruleBook: [
           {
             title: "About the Event",
@@ -341,20 +333,13 @@ export const EVENTS = [
 
       {
         title: "PHARMASPARK",
-        // ✅ UPDATED DESCRIPTION
         description: "Pharmacy-focused competition promoting innovation and scientific thinking. Theme: Indian Pharma for Global Wellbeing.",
         image: "/assets/images/pharmatech.png",
-        // ✅ UPDATED FEE
         fee: "₹199 / TEAM",
         date: "20 Feb",
-        // ✅ UPDATED ROUNDS
         rounds: "Poster -> Model",
         prize: "Prize money worth upto 30k",
-        
-        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
-
-        // ✅ UPDATED RULEBOOK
         ruleBook: [
           {
             title: "Theme & Eligibility",
@@ -417,6 +402,9 @@ export const EVENTS = [
     registrationFee: 'Varies',
     teamSize: 'Squad Based',
 
+    // ✅ ADDED IMAGE PATH
+    villainImg: "/assets/images/nexus.png",
+
     subEvents: [
       {
         title: "BGMI",
@@ -426,10 +414,7 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Custom Match",
         prize: "Worth Upto 15k",
-        
-        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/6DblX3j?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
-        
         ruleBook: [
           {
             title: "Rules & Regulations",
@@ -460,10 +445,7 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Single Match",
         prize: "Worth Upto 15k",
-        
-        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/gsntyRz?lb=AQwcTKgS&utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
-        
         ruleBook: [
           {
             title: "Rules & Regulations",
@@ -494,10 +476,7 @@ export const EVENTS = [
         date: "21 FEB",
         rounds: "Knockout",
         prize: "Worth Upto 15k",
-        
-        // ✅ REGISTRATION LINK
         registrationLink: "https://unstop.com/o/b3gAD4V?utm_medium=Share&utm_source=virajbal36895&utm_campaign=Events",
-        
         ruleBook: [
           {
             title: "Rules & Regulations",
