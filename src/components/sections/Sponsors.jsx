@@ -44,11 +44,7 @@ const SPONSORS = [
     logo: "/assets/images/IEEE-Logo-removebg-preview.png",
     link: "#"
   },
-  {
-    name: "IEEE TAE Student Branch",
-    logo: "/assets/images/IEEELOGO2-removebg-preview.png",
-    link: "#"
-  }
+
 ]
 
 const Sponsors = memo(function Sponsors() {
