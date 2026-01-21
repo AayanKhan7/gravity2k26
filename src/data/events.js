@@ -110,7 +110,7 @@ export const EVENTS = [
         date: "21 Feb 2026",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 50k",
-        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdyn4ewc8RtCQjE7nt-A35YJ7R9H90IxMPCS5cW1wCWrdLV1A/viewform?usp=header",
+        registrationLink:"https://unstop.com/o/qZBsVWS?lb=Jmp6eNQX&utm_medium=Share&utm_source=shindshr10671&utm_campaign=Events",
         ruleBook: [
           {
             title: "Event Objectives",
@@ -171,7 +171,7 @@ export const EVENTS = [
 
     subEvents: [
       {
-        title: "FrameForge (Robotics)",
+        title: "FrameForge ",
         description: "Design a line-following vehicle with a modular cage. No glue/welding allowed—only mechanical locking.",
         image: "/assets/images/frameforge.png",
         fee: "₹199 / Team", 
@@ -399,7 +399,7 @@ export const EVENTS = [
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
     prizePool: 'Prize money worth upto 15k',
-    registrationFee: 'Varies',
+    registrationFee: '199 per team',
     teamSize: 'Squad Based',
 
     // ✅ ADDED IMAGE PATH
@@ -410,7 +410,7 @@ export const EVENTS = [
         title: "BGMI",
         description: "Adrenaline-fueled battleground. Map toss determines side. Best of 1 elimination.",
         image: "/assets/images/bgmi.png",
-        fee: "₹200 / Squad",
+        fee: "₹199 / Squad",
         date: "21 FEB",
         rounds: "Custom Match",
         prize: "Worth Upto 15k",
