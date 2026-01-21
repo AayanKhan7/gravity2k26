@@ -4,16 +4,7 @@ import { memo } from 'react'
 
 // ✅ UPDATED SPONSOR LIST
 const SPONSORS = [
-  {
-    name: "Rahitech Solution",
-    logo: "/assets/images/rahitech.jpeg",
-    link: "https://rahitech.com/"
-  },
-  {
-    name: "Mile 2",
-    logo: "/assets/images/MILE-2-LOGO.webp",
-    link: "#"
-  },
+ 
   {
     name: "DigiGhar",
     logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png", // Added

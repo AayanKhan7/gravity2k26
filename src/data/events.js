@@ -7,7 +7,8 @@ export const EVENTS = [
     title: 'PITCH PERFECT',
     type: 'Startup Pitching (Shark Tank)',
     planetType: 'mercury',
-    planetAccent: '#9e9e9e',
+    // ✅ CHANGED COLOR: Gold
+    planetAccent: '#FFD700',
     path: '/pitch-perfect',
     description: "Pitch your startup vision to investors and secure funding for your empire. Domains: Fintech, HealthTech, Agri-Tech, Sustainable Solutions, & EdTech.",
     prizePool: 'Prize Money worth upto 1 Lakh', 
@@ -24,7 +25,7 @@ export const EVENTS = [
         rounds: "PPT Submission -> Final Pitch",
         prize: "Prize Money worth upto 1 Lakh",
         
-        // ✅ REGISTRATION LINK
+        // ✅ REGISTRATION LINK (Updated)
         registrationLink: "https://unstop.com/o/ys53oDj?lb=Qq066NCo&utm_medium=Share&utm_source=mayurpat57712&utm_campaign=Competitions",
         
         ruleBook: [
@@ -89,7 +90,8 @@ export const EVENTS = [
     title: 'CINECLASH',
     type: 'Short Film Competition',
     planetType: 'moon',
-    planetAccent: '#cfcfcf',
+    // ✅ CHANGED COLOR: Red
+    planetAccent: '#FF4757',
     path: '/cineclash',
     description: "Direct, edit, and showcase your cinematic saga. A digital marketing–oriented competition to encourage storytelling and branding.",
     prizePool: 'Prize money worth upto 50k', 
@@ -107,8 +109,7 @@ export const EVENTS = [
         prize: "Prize money worth upto 50k",
 
         // ✅ REGISTRATION LINK
-        registrationLink:"https://unstop.com/o/qZBsVWS?lb=Jmp6eNQX&utm_medium=Share&utm_source=shindshr10671&utm_campaign=Events",
-  
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdyn4ewc8RtCQjE7nt-A35YJ7R9H90IxMPCS5cW1wCWrdLV1A/viewform?usp=header",
 
         ruleBook: [
           {
@@ -158,7 +159,7 @@ export const EVENTS = [
     title: 'THE QUADRANT',
     type: 'Technical Event',
     planetType: 'neptune',
-    planetAccent: '#3f8cff',
+    planetAccent: '#3f8cff', // Kept as Blue
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, or PharmaTech.",
     prizePool: 'Prize money worth upto 30k',
@@ -226,7 +227,7 @@ export const EVENTS = [
         title: "BUG 2 BUILD (Coding)",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
         image: "/assets/images/bug2build.png",
-        fee: "₹199 / Team",
+        fee: "Free Registration",
         date: "20 Feb",
         rounds: "5 Rounds",
         prize: "Prize money worth upto 30k",
@@ -344,7 +345,7 @@ export const EVENTS = [
         description: "Pharmacy-focused competition promoting innovation and scientific thinking. Theme: Indian Pharma for Global Wellbeing.",
         image: "/assets/images/pharmatech.png",
         // ✅ UPDATED FEE
-       fee: "₹199 / TEAM",
+        fee: "₹199 / TEAM",
         date: "20 Feb",
         // ✅ UPDATED ROUNDS
         rounds: "Poster -> Model",
@@ -409,11 +410,11 @@ export const EVENTS = [
     title: 'NEXUS',
     type: 'Gaming Event',
     planetType: 'uranus',
-    planetAccent: '#66d1c1',
+    planetAccent: '#66d1c1', // Kept as Teal
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
     prizePool: 'Prize money worth upto 15k',
-    registrationFee: '₹199 per team',
+    registrationFee: 'Varies',
     teamSize: 'Squad Based',
 
     subEvents: [
@@ -421,7 +422,7 @@ export const EVENTS = [
         title: "BGMI",
         description: "Adrenaline-fueled battleground. Map toss determines side. Best of 1 elimination.",
         image: "/assets/images/bgmi.png",
-        fee: "₹199 / Squad",
+        fee: "₹200 / Squad",
         date: "21 FEB",
         rounds: "Custom Match",
         prize: "Worth Upto 15k",
