@@ -227,7 +227,7 @@ export const EVENTS = [
         title: "BUG 2 BUILD (Coding)",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
         image: "/assets/images/bug2build.png",
-        fee: "Free Registration",
+        fee: "199 ₹ / Team",
         date: "20 Feb",
         rounds: "5 Rounds",
         prize: "Prize money worth upto 30k",
