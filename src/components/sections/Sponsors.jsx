@@ -20,7 +20,7 @@ const SPONSORS = [
     link: "#"
   },
   {
-    name: "VH Tech",
+    name: "VS Tech",
     logo: "/assets/images/logo vht.jpeg",
     link: "#"
   },
