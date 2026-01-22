@@ -171,7 +171,7 @@ export const EVENTS = [
 
     subEvents: [
       {
-        title: "FrameForge ",
+        title: "FrameForge",
         description: "Design a line-following vehicle with a modular cage. No glue/welding allowed—only mechanical locking.",
         image: "/assets/images/frameforge.png",
         fee: "₹199 / Team", 
@@ -283,7 +283,8 @@ export const EVENTS = [
       
       {
         title: "Infrathon (Model Making)",
-        description: "Hands-on infrastructure design challenge testing creativity, logic, and core civil/architecture knowledge.",
+        // ✅ UPDATED DESCRIPTION AND RULES
+        description: "Hands-on infrastructure challenge: Design a Geodesic Dome (Round 1) and create a Building Facade (Round 2). Theme: Efficient Structures for a Sustainable Future.",
         image: "/assets/images/infrathon.png",
         fee: "₹199 / Team",
         date: "20 Feb",
@@ -292,40 +293,30 @@ export const EVENTS = [
         registrationLink: "https://unstop.com/o/WVmXUKI?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Events",
         ruleBook: [
           {
-            title: "About the Event",
+            title: "Round 1: Geodesic Dome (Design)",
             points: [
-              "A hands-on infrastructure design challenge that tests creativity, logic, and core civil/architecture knowledge.",
-              "Participants design structural models using limited resources while applying practical engineering principles."
+              "Theme: 'Efficient Structures for a Sustainable Future'.",
+              "Task: Construct a scaled physical model of a self-supporting Geodesic Dome.",
+              "Specs: Max Diameter 30–40 cm, Max Height 20–25 cm.",
+              "Materials Allowed: Ice-cream sticks, bamboo skewers, straws, thread, glue. (No kits/metal).",
+              "Format: 2–3 Hours. Team of 2-3 members."
             ]
           },
           {
-            title: "Thrust Area",
+            title: "Round 2: Form to Facade (Elevation)",
             points: [
-              "Creativity and structural innovation",
-              "Logical design and load distribution",
-              "Civil engineering & architectural fundamentals"
+              "Task: Interpret a provided floor plan and design the front elevation (Facade).",
+              "Focus: Design thinking, composition, fenestration, and climate response.",
+              "Deliverables: A3 Drawing (Hand-drawn recommended) + Design Concept (50-75 words).",
+              "Format: 2–3 Hours. Team of 2 members only.",
+              "Rules: No changes to floor plan allowed. No internet reference."
             ]
           },
           {
-            title: "Team Composition",
+            title: "Judging Criteria",
             points: [
-              "Teams of 2–4 participants",
-              "Inter-department participation allowed"
-            ]
-          },
-          {
-            title: "Competition Format",
-            points: [
-              "Round 1: Skyscraper Challenge – Construct a skyscraper using newspapers, focusing on height, stability, and material efficiency.",
-              "Round 2: Bridge Endurance Challenge – Qualified teams design a bridge with maximum load-bearing capacity, tested for strength and durability."
-            ]
-          },
-          {
-            title: "Evaluation Criteria",
-            points: [
-              "Structural strength and stability",
-              "Innovation and design logic",
-              "Efficient use of materials"
+              "Round 1: Stability (30%), Geometry Accuracy (25%), Material Efficiency (15%), Finish (15%).",
+              "Round 2: Clarity (30%), Plan Translation (25%), Proportion (20%), Practicality (15%)."
             ]
           }
         ]
