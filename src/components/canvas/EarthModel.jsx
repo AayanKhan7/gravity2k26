@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 import * as THREE from 'three'
@@ -23,13 +23,14 @@ const fragmentShader = `
 export default function EarthModel() {
   const earthRef = useRef()
   
-  // Using standard high-quality textures
-  const [colorMap, normalMap, specularMap, cloudsMap] = useTexture([
-    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg',
-    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_normal_2048.jpg',
-    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg',
-    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_clouds_1024.png',
-  ])
+  const colorMap = useTexture('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
+
+  useEffect(() => {
+    if (!colorMap) return
+    colorMap.anisotropy = 2
+    colorMap.minFilter = THREE.LinearFilter
+    colorMap.generateMipmaps = false
+  }, [colorMap])
 
   useFrame(({ clock }) => {
     if (earthRef.current) {
@@ -41,19 +42,17 @@ export default function EarthModel() {
     <group position={[0, -3.5, 0]} rotation={[0.4, 0, 0]}>
       {/* 1. Earth Surface */}
       <mesh ref={earthRef} receiveShadow>
-        <sphereGeometry args={[3.5, 64, 64]} />
-        <meshPhongMaterial 
+        <sphereGeometry args={[3.5, 48, 48]} />
+        <meshStandardMaterial 
           map={colorMap}
-          normalMap={normalMap}
-          specularMap={specularMap}
-          // The shininess property is deprecated in MeshStandardMaterial.
-          shininess={10}
+          roughness={0.8}
+          metalness={0.05}
         />
       </mesh>
 
       {/* 2. Atmosphere Glow */}
       <mesh scale={[1.1, 1.1, 1.1]}>
-        <sphereGeometry args={[3.5, 64, 64]} />
+        <sphereGeometry args={[3.5, 48, 48]} />
         <shaderMaterial
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}

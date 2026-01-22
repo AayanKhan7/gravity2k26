@@ -6,18 +6,16 @@ export default function AnimatedStarField() {
   const groupRef = useRef()
   
   // 🚀 OPTIMIZATION: Reduce star count based on screen size
-  const [starCount, setStarCount] = useState(1500)
+  const [starCount, setStarCount] = useState(900)
 
   useEffect(() => {
-    // 3000 for Desktop, 1500 for Mobile to fix lag
-    setStarCount(window.innerWidth > 768 ? 3000 : 1500)
-
-    const handleResize = () => {
-      setStarCount(window.innerWidth > 768 ? 3000 : 1500)
+    const updateCount = () => {
+      setStarCount(window.innerWidth > 768 ? 1400 : 800)
     }
 
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
+    updateCount()
+    window.addEventListener('resize', updateCount)
+    return () => window.removeEventListener('resize', updateCount)
   }, [])
   
   const { positions, originalPositions, sizes } = useMemo(() => {
@@ -27,7 +25,7 @@ export default function AnimatedStarField() {
 
     for (let i = 0; i < starCount; i++) {
       const i3 = i * 3
-      const radius = 300 + Math.random() * 400
+      const radius = 220 + Math.random() * 260
       const theta = Math.random() * Math.PI * 2
       const phi = Math.acos(Math.random() * 2 - 1)
       
@@ -39,7 +37,7 @@ export default function AnimatedStarField() {
       origPos[i3 + 1] = pos[i3 + 1]
       origPos[i3 + 2] = pos[i3 + 2]
       
-      starSizes[i] = 0.5 + Math.random() * 1.5
+      starSizes[i] = 0.5 + Math.random() * 1.2
     }
 
     return { positions: pos, originalPositions: origPos, sizes: starSizes }
@@ -51,14 +49,11 @@ export default function AnimatedStarField() {
     const elapsedTime = clock.getElapsedTime()
     const positionAttr = starsRef.current.geometry.attributes.position
 
-    // 🚀 OPTIMIZATION: Simplified rotation math
-    groupRef.current.rotation.y = elapsedTime * 0.05 
+    groupRef.current.rotation.y = elapsedTime * 0.04
 
-    // Move stars
     for (let i = 0; i < starCount; i++) {
       const i3 = i * 3
-      // Simple drift
-      positionAttr.array[i3] = originalPositions[i3] + Math.sin(elapsedTime * 0.1 + i) * 2
+      positionAttr.array[i3] = originalPositions[i3] + Math.sin(elapsedTime * 0.08 + i) * 1.5
     }
     positionAttr.needsUpdate = true
   })

@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 // ✅ EAGER IMPORTS
@@ -24,6 +24,27 @@ const LoadingSpinner = () => (
 )
 
 function App() {
+  const [enableStarfield, setEnableStarfield] = useState(true)
+
+  useEffect(() => {
+    const widthQuery = window.matchMedia('(max-width: 768px)')
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    const updateFlags = () => {
+      const shouldDisable = widthQuery.matches || motionQuery.matches
+      setEnableStarfield(!shouldDisable)
+    }
+
+    updateFlags()
+    widthQuery.addEventListener('change', updateFlags)
+    motionQuery.addEventListener('change', updateFlags)
+
+    return () => {
+      widthQuery.removeEventListener('change', updateFlags)
+      motionQuery.removeEventListener('change', updateFlags)
+    }
+  }, [])
+
   const pitchData = EVENTS?.find(e => e.id === 'pitch-perfect')
   const cineData = EVENTS?.find(e => e.id === 'cineclash')
   const quadrantData = EVENTS?.find(e => e.id === 'quadrant')
@@ -33,9 +54,11 @@ function App() {
     <Router>
       <div className="relative overflow-x-hidden text-white">
         
-        <Suspense fallback={null}>
-          <GlobalStarBackground />
-        </Suspense>
+        {enableStarfield && (
+          <Suspense fallback={null}>
+            <GlobalStarBackground enabled={enableStarfield} />
+          </Suspense>
+        )}
 
         <Routes>
           <Route path="/" element={<HomeLayout />} />
