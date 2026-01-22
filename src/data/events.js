@@ -324,7 +324,7 @@ export const EVENTS = [
 
       {
         title: "PHARMASPARK",
-        description: "Pharmacy-focused competition promoting innovation and scientific thinking. Theme: Indian Pharma for Global Wellbeing.",
+        description: "Theme : Lab to life : Pharmaceutical development models",
         image: "/assets/images/pharmatech.png",
         fee: "₹199 / TEAM",
         date: "20 Feb",
@@ -335,7 +335,7 @@ export const EVENTS = [
           {
             title: "Theme & Eligibility",
             points: [
-              "Theme: Indian Pharma for Global Wellbeing",
+              "Theme: Lab to life : Pharmaceutical development models",
               "Team Composition: Teams of up to 3 participants",
               "Participation is limited to Pharmacy students only."
             ]
@@ -343,7 +343,7 @@ export const EVENTS = [
           {
             title: "Round 1: Poster Presentation",
             points: [
-              "Present a scientific poster highlighting innovative ideas related to pharmaceutical sciences.",
+              "Present a scientific poster highlighting innovative ideas related to pharmaceutical Models.",
               "Poster Size: 1m × 1m (Mandatory)",
               "Structure: Introduction, Methodology, Results, Conclusion, Recommendations.",
               "No personal details on the poster.",
@@ -353,10 +353,10 @@ export const EVENTS = [
           {
             title: "Round 2: Model Making",
             points: [
-              "Shortlisted teams present a pharmaceutical science–based model.",
-              "Must be supported by a self-explanatory poster or PPT.",
+              "All teams should present their model.",
               "Any suitable materials can be used.",
-              "Explanation time: 4–5 minutes per team."
+              "Explanation time: 4–5 minutes per team.",
+              "Final selected teams will be winners"
             ]
           },
           {
@@ -378,6 +378,7 @@ export const EVENTS = [
     ]
   },
 
+  
   // =================================================================================
   // 4. NEXUS (Gaming)
   // =================================================================================
