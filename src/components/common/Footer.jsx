@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from '../../data'
 import { motion } from 'framer-motion'
-// 👇 Removed Github, Kept others
-import { Instagram, Twitter, Linkedin } from 'lucide-react'
+import { Link } from 'react-scroll' // ✅ Imported for scrolling
+import { Instagram } from 'lucide-react' // ✅ Only kept Instagram
 
 export default function Footer() {
   const colleges = [
@@ -16,23 +16,22 @@ export default function Footer() {
     "Trinity College of Arts, Commerce & Science (TCACS)"
   ]
 
-  // ✅ SOCIAL LINKS CONFIGURATION
+  // ✅ SOCIAL LINKS (Only Instagram)
   const socialLinks = [
     { 
       icon: Instagram, 
       href: "https://www.instagram.com/gravity_2k26?igsh=Ym9lcDdsNjV5cm80",
       color: "hover:text-pink-500"
-    },
-    { 
-      icon: Twitter, 
-      href: "#", // Add Twitter link if available
-      color: "hover:text-sky-400"
-    },
-    { 
-      icon: Linkedin, 
-      href: "#", // Add LinkedIn link if available
-      color: "hover:text-blue-600"
     }
+  ]
+
+  // ✅ EXPLORE LINKS MAPPING
+  const exploreLinks = [
+    { label: 'Home', to: 'hero' },
+    { label: 'About Us', to: 'about' },
+    { label: 'Events', to: 'events' },
+    { label: 'Sponsors', to: 'sponsors' },
+    { label: 'Gallery', to: 'gallery' }
   ]
 
   return (
@@ -64,6 +63,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           
+          {/* BRAND SECTION */}
           <div className="md:col-span-5 space-y-6">
             <img 
               src="/assets/images/Gravity logo.PNG" 
@@ -75,23 +75,31 @@ export default function Footer() {
             </p>
           </div>
 
+          {/* EXPLORE SECTION (Now Linked) */}
           <div className="md:col-span-3">
             <h3 className="text-white font-bold text-lg mb-6 tracking-widest uppercase">Explore</h3>
             <ul className="space-y-3 text-white/60 text-sm">
-              {['Home', 'About Us', 'Events', 'Sponsors', 'Gallery'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="hover:text-cyan-400 hover:pl-2 transition-all duration-300 flex items-center gap-2">
-                    &rsaquo; {item}
-                  </a>
+              {exploreLinks.map((item) => (
+                <li key={item.label}>
+                  <Link 
+                    to={item.to} 
+                    smooth={true} 
+                    duration={600} 
+                    offset={-100}
+                    className="hover:text-cyan-400 hover:pl-2 transition-all duration-300 flex items-center gap-2 cursor-pointer"
+                  >
+                    &rsaquo; {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* CONNECT SECTION */}
           <div className="md:col-span-4">
             <h3 className="text-white font-bold text-lg mb-6 tracking-widest uppercase">Connect</h3>
             
-            {/* SOCIAL ICONS */}
+            {/* SOCIAL ICONS (Only Instagram) */}
             <div className="flex gap-4 mb-8">
               {socialLinks.map((social, i) => (
                 <a 
@@ -108,8 +116,7 @@ export default function Footer() {
 
             <div className="p-4 rounded-xl bg-white/5 border border-white/10">
               <p className="text-xs text-white/40 uppercase tracking-widest mb-1">General Inquiries</p>
-              {/* ✅ UPDATED EMAIL */}
-              <a href="mailto:gravity2k26@gmail.com" className="text-white font-mono hover:text-cyan-400 transition-colors">
+              <a href="mailto:gravity2k26.tae@kjei.edu.in" className="text-white font-mono hover:text-cyan-400 transition-colors">
                 gravity2k26.tae@kjei.edu.in
               </a>
             </div>
@@ -127,7 +134,6 @@ export default function Footer() {
             <p className="mb-1">
               Designed & Developed by <span className="text-cyan-400/60">Tech Team Gravity</span>
             </p>
-            {/* ✅ ADDED AYAAN KHAN DETAILS */}
             <p>
               Lead Developer: <span className="text-white/50">Ayaan Khan</span> • 
               <a href="mailto:ayaanikhan.tae@kjei.edu.in" className="hover:text-cyan-400 ml-1 transition-colors">
