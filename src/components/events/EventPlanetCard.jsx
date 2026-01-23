@@ -5,6 +5,9 @@ export default function EventPlanetCard({ event }) {
   // Use the event's specific accent color
   const accentColor = event.planetAccent || '#06b6d4'; 
 
+  // Check if we need to show sub-events (For Nexus & Quadrant)
+  const showSubEvents = event.subEvents && event.subEvents.length > 1;
+
   return (
     // ✅ Optimized container for Grid Cell
     <div className="w-full h-full flex items-stretch justify-center">
@@ -76,6 +79,26 @@ export default function EventPlanetCard({ event }) {
             <p className="text-white/80 text-sm md:text-base leading-relaxed font-light line-clamp-3 drop-shadow-md">
               {event.description}
             </p>
+
+            {/* ✅ NEW: SUB-EVENT LISTING (Larger Font) */}
+            {showSubEvents && (
+              <div className="flex flex-wrap justify-center gap-3 mt-3 w-full">
+                {event.subEvents.map((sub, index) => (
+                  <span 
+                    key={index}
+                    // ✅ Increased font size to text-xs (12px) and padding
+                    className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded border bg-black/40 backdrop-blur-md transition-transform hover:scale-105"
+                    style={{ 
+                      borderColor: `${accentColor}50`, 
+                      color: accentColor 
+                    }}
+                  >
+                    {/* Cleans up names like "FrameForge (Robotics)" to just "FrameForge" for cleaner look */}
+                    {sub.title.split('(')[0].trim()}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="flex flex-col items-center space-y-6 w-full">
