@@ -64,13 +64,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           
           {/* BRAND SECTION */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="md:col-span-5 space-y-4">
             <img 
               src="/assets/images/Gravity logo.PNG" 
               alt="Gravity 2K26" 
               className="h-24 w-auto opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" 
             />
-            <p className="text-white/60 text-sm leading-relaxed max-w-sm">
+            
+            {/* ✅ ADDED HOSTED BY TEXT */}
+            <p className="text-cyan-400 font-bold text-sm uppercase tracking-wide">
+              Hosted By Trinity Academy of Engineering
+            </p>
+
+            <p className="text-white/60 text-sm leading-relaxed max-w-sm pt-2">
               Gravity 2K26 is the ultimate techfest of KJEI, bringing together the brightest minds for a celebration of technology, innovation, and creativity.
             </p>
           </div>

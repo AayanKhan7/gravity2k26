@@ -33,11 +33,6 @@ const SPONSORS = [
     name: "Celestia",
     logo: "/assets/images/CELESTIA_logo-removebg-preview.png",
     link: "#"
-  },
-  {
-    name: "IEEE",
-    logo: "/assets/images/IEEE-Logo-removebg-preview.png",
-    link: "#"
   }
 ]
 
@@ -50,7 +45,7 @@ const COMMUNITY_PARTNERS = [
   },
   {
     name: "IEEE TAE Student Branch",
-    logo: "/assets/images/IEEELOGO2-removebg-preview.png",
+    logo: "/assets/images/IEEELOGO2.png",
     link: "#"
   }
 ]
