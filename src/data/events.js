@@ -7,15 +7,12 @@ export const EVENTS = [
     title: 'PITCH PERFECT',
     type: 'Startup Pitching (Shark Tank)',
     planetType: 'mercury',
-    // ✅ CHANGED COLOR: Gold
     planetAccent: '#FFD700',
     path: '/pitch-perfect',
     description: "Pitch your startup vision to investors and secure funding for your empire. Domains: Fintech, HealthTech, Agri-Tech, Sustainable Solutions, & EdTech.",
     prizePool: 'Prize Money worth upto 1 Lakh', 
     registrationFee: '₹499 per team',
     teamSize: 'Up to 4 members',
-    
-    // ✅ ADDED IMAGE PATH
     villainImg: "/assets/images/pitchperfect1.png", 
     
     subEvents: [
@@ -90,15 +87,12 @@ export const EVENTS = [
     title: 'CINECLASH',
     type: 'Short Film Competition',
     planetType: 'moon',
-    // ✅ CHANGED COLOR: Red
     planetAccent: '#FF4757',
     path: '/cineclash',
     description: "Direct, edit, and showcase your cinematic saga. A digital marketing–oriented competition to encourage storytelling and branding.",
     prizePool: 'Prize money worth upto 50k', 
     registrationFee: '₹399 per team',
     teamSize: 'Individual or Team',
-
-    // ✅ ADDED IMAGE PATH
     villainImg: "/assets/images/cineclash1.png",
 
     subEvents: [
@@ -159,14 +153,12 @@ export const EVENTS = [
     title: 'THE QUADRANT',
     type: 'Technical Event',
     planetType: 'neptune',
-    planetAccent: '#3f8cff', // Kept as Blue
+    planetAccent: '#3f8cff', 
     path: '/quadrant',
-    description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, or PharmaTech.",
-    prizePool: 'Prize money worth upto 1 Lakh 20k',
+    description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, PharmaTech or Paper Presentation.",
+    prizePool: 'Prize money worth upto 1 Lakh 30k',
     registrationFee: '199 per team',
     teamSize: 'Varies',
-
-    // ✅ ADDED IMAGE PATH
     villainImg: "/assets/images/quadrant.png",
 
     subEvents: [
@@ -283,7 +275,6 @@ export const EVENTS = [
       
       {
         title: "Infrathon (Model Making)",
-        // ✅ UPDATED DESCRIPTION AND RULES
         description: "Hands-on infrastructure challenge: Design a Geodesic Dome (Round 1) and create a Building Facade (Round 2). Theme: Efficient Structures for a Sustainable Future.",
         image: "/assets/images/infrathon.png",
         fee: "₹199 / Team",
@@ -324,53 +315,130 @@ export const EVENTS = [
 
       {
         title: "PHARMASPARK",
-        description: "Theme : Lab to life : Pharmaceutical development models",
+        description: "Theme: Lab to Life (Pharmaceutical Development Models & Formulations). Participating domains: Model Making & Herbal Formulations.",
         image: "/assets/images/pharmatech.png",
         fee: "₹199 / TEAM",
         date: "20 Feb",
-        rounds: "Poster -> Model",
+        rounds: "Model Making / Herbal Formulation",
         prize: "Prize money worth upto 30k",
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
             title: "Theme & Eligibility",
             points: [
-              "Theme: Lab to life : Pharmaceutical development models",
-              "Team Composition: Teams of up to 3 participants",
-              "Participation is limited to Pharmacy students only."
+              "Theme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
+              "Eligibility: D. Pharm, B. Pharm, M. Pharm, Pharm. D, Ph.D. (Pursuing).",
+              "Department: Participants must be from the Pharmacy department.",
+              "Team Size: 2-4 participants per team.",
+              "ID Card: Must carry institute identity card."
             ]
           },
           {
-            title: "Round 1: Poster Presentation",
+            title: "Event 1: Model Making",
             points: [
-              "Present a scientific poster highlighting innovative ideas related to pharmaceutical Models.",
-              "Poster Size: 1m × 1m (Mandatory)",
-              "Structure: Introduction, Methodology, Results, Conclusion, Recommendations.",
-              "No personal details on the poster.",
-              "Participants must report 15 minutes before schedule."
+              "Requirement: A model related to Pharmaceutical Sciences.",
+              "Presentation: Self-explanatory poster or PowerPoint presentation (Laptop required).",
+              "Materials: Participants can choose any material.",
+              "Constraints: No personal details on PPT/Poster.",
+              "Time: 4–5 minutes for explanation.",
+              "Judging: Selection, Design & Fabrication, Explanation, Aesthetic appeal."
             ]
           },
           {
-            title: "Round 2: Model Making",
+            title: "Event 2: Herbal Formulation",
             points: [
-              "All teams should present their model.",
-              "Any suitable materials can be used.",
-              "Explanation time: 4–5 minutes per team.",
-              "Final selected teams will be winners"
+              "Topics: Creams, Gels, Powders, Hair tonics, etc.",
+              "Requirement: Prepared formulations with ingredient details, evaluation parameters, and analysis report.",
+              "Presentation: Formulation + Self-explanatory poster or PowerPoint (Laptop required).",
+              "Storage: Use appropriate containers.",
+              "Time: 4–5 minutes for explanation.",
+              "Judging: Innovation, Originality, Composition, Creativity, Message."
             ]
           },
           {
-            title: "Evaluation Criteria",
+            title: "General Guidelines",
             points: [
-              "Round 1: Relevance, Originality, Visual Appeal, Effectiveness of Communication.",
-              "Round 2: Model Selection, Design & Fabrication, Explanation, Aesthetic Appeal."
+              "Reporting Time: 15 minutes before schedule.",
+              "Awards: Top 3 teams receive prizes/certificates. Participation certificates for all.",
+              "Disqualification: Unethical behavior leads to immediate disqualification.",
+              "Decisions: Judges' and Faculty-coordinators' decisions are final."
+            ]
+          }
+        ]
+      },
+
+      // ✅ ADDED NEW EVENT: THE PODIUM
+      {
+        title: "THE PODIUM",
+        description: "Technical Paper Presentation. Explore future technologies like Green Hydrogen, AI, and Smart Systems.",
+        image: "/assets/images/thepodium.png", 
+        fee: "₹100 / Team", // Standard fee assumed for consistency
+        date: "20 Feb",
+        rounds: "Paper Submission -> Presentation",
+        prize: "Prize Money worth upto 10K",
+        registrationLink: "https://unstop.com/", // Placeholder
+        ruleBook: [
+          {
+            title: "Proposed Domains",
+            points: [
+              "1. Green Hydrogen and its Future in Power Sector",
+              "2. DC Fast Charging and Its Impact on Battery Life",
+              "3. Building Information Modeling (BIM) in Construction",
+              "4. Smart Water resource Management",
+              "5. Drone Technology & Control System",
+              "6. EV Charging infrastructure- challenges & Solution in India",
+              "7. Smart Manufacturing & Industry 4.0",
+              "8. Recycling & Waste Management in Mechanical Engineering",
+              "9. Generative Artificial Intelligence in Engineering Applications",
+              "10. Edge Computing for Real-Time Engineering Applications"
             ]
           },
           {
-            title: "Awards",
+            title: "General Rules",
             points: [
-              "Top three teams will receive prizes and certificates.",
-              "Participation certificates will be provided to all."
+              "Team Size: Upto 2 participants per team.",
+              "Domain Selection: Teams must choose one domain at registration.",
+              "Originality: Paper must be original. Plagiarism leads to disqualification.",
+              "Pitch Format: 5-minute pitch + 3-minute Q&A.",
+              "Judges’ Decision: Final and binding."
+            ]
+          },
+          {
+            title: "Paper Format Guidelines",
+            points: [
+              "Length: 1800-2000 words (4-5 Pages).",
+              "Paper Size: A4, 70 GSM, White. Font: Times New Roman.",
+              "Font Size: Title 14 (Bold), Sub Titles 12 (Bold), Text 12 (Normal).",
+              "Margins: Top 0.75”, Bottom 0.5”, Left 1.25”, Right 1”.",
+              "Columns: Two columns (3.5” wide, 0.25” gap).",
+              "Line Spacing: 1.5.",
+              "Printing: Single-sided only."
+            ]
+          },
+          {
+            title: "Content & Presentation",
+            points: [
+              "Structure: Title, Author, Institute, Abstract, Contents, Conclusions, References.",
+              "Presentation: PowerPoint of 8–10 slides only.",
+              "Heading of Table on top; Figures below."
+            ]
+          },
+          {
+            title: "Evaluation Criteria (100 Marks)",
+            points: [
+              "Quality of information/Knowledge: 20",
+              "Creativity, Innovation in presentation: 20",
+              "Response to questions: 20",
+              "Technology & Domain Relevance: 20",
+              "Objectives of the paper and action plan: 20"
+            ]
+          },
+          {
+            title: "Important Dates",
+            points: [
+              "PPT Submission Deadline: 18/02/2026",
+              "Event Date: 20th Feb",
+              "Prize Money worth upto 10K"
             ]
           }
         ]
@@ -378,7 +446,6 @@ export const EVENTS = [
     ]
   },
 
-  
   // =================================================================================
   // 4. NEXUS (Gaming)
   // =================================================================================
@@ -387,14 +454,12 @@ export const EVENTS = [
     title: 'NEXUS',
     type: 'Gaming Event',
     planetType: 'uranus',
-    planetAccent: '#66d1c1', // Kept as Teal
+    planetAccent: '#66d1c1', 
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
     prizePool: 'Prize money worth upto 45k',
     registrationFee: '199 per team',
     teamSize: 'Squad Based',
-
-    // ✅ ADDED IMAGE PATH
     villainImg: "/assets/images/nexus.png",
 
     subEvents: [
