@@ -16,7 +16,7 @@ function MilkyWayGalaxy() {
     const ctx = canvas.getContext('2d')
     const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16)
     gradient.addColorStop(0, 'rgba(255, 255, 255, 1)')
-    gradient.addColorStop(0.4, 'rgba(255, 255, 255, 0.2)')
+    gradient.addColorStop(0.4, 'rgba(100, 200, 255, 0.2)') // Slight blue tint
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)')
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, 32, 32)
@@ -26,13 +26,13 @@ function MilkyWayGalaxy() {
 
   // Refined Galaxy Colors (More realistic/cinematic)
   const galaxyParams = useMemo(() => ({
-    count: 15000,
-    radius: 12,
+    count: 20000,
+    radius: 15,
     branches: 3,
-    spin: 1.2,
-    randomness: 0.3,
+    spin: 1,
+    randomness: 0.2,
     randomnessPower: 3,
-    insideColor: new THREE.Color('#ffddaa'), // Warm white/yellow core
+    insideColor: new THREE.Color('#ffaa33'), // Warm core
     outsideColor: new THREE.Color('#1b3984') // Deep cosmic blue arms
   }), [])
 
@@ -47,7 +47,7 @@ function MilkyWayGalaxy() {
       const branchAngle = (i % galaxyParams.branches) / galaxyParams.branches * Math.PI * 2
 
       const randomX = Math.pow(Math.random(), galaxyParams.randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * galaxyParams.randomness * radius
-      const randomY = Math.pow(Math.random(), galaxyParams.randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * galaxyParams.randomness * radius * 0.5 // Flatter
+      const randomY = Math.pow(Math.random(), galaxyParams.randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * galaxyParams.randomness * radius * 0.5 
       const randomZ = Math.pow(Math.random(), galaxyParams.randomnessPower) * (Math.random() < 0.5 ? 1 : -1) * galaxyParams.randomness * radius
 
       positions[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX
@@ -68,7 +68,7 @@ function MilkyWayGalaxy() {
 
   useFrame((state, delta) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y += delta * 0.05
+      pointsRef.current.rotation.y += delta * 0.03 // Slower, majestic rotation
     }
   })
 
@@ -90,22 +90,16 @@ function MilkyWayGalaxy() {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.05}
+          size={0.08} // Slightly larger stars
           sizeAttenuation={true}
           depthWrite={false}
           blending={THREE.AdditiveBlending}
           vertexColors={true}
           map={starTexture}
           transparent
-          opacity={0.8}
+          opacity={0.9}
         />
       </points>
-      
-      {/* Central Core Glow */}
-      <mesh>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial color="#ffddaa" transparent opacity={0.05} blending={THREE.AdditiveBlending} />
-      </mesh>
     </group>
   )
 }
@@ -114,11 +108,12 @@ function CameraRig() {
   const { camera, size } = useThree()
   
   useEffect(() => {
+    // Dynamic FOV based on screen width
     if (size.width < 768) {
-      camera.position.set(0, 8, 14)
-      camera.fov = 60
+      camera.position.set(0, 10, 18) // Further back on mobile
+      camera.fov = 65
     } else {
-      camera.position.set(0, 5, 12)
+      camera.position.set(0, 5, 14)
       camera.fov = 50
     }
     camera.lookAt(0, 0, 0)
@@ -140,12 +135,14 @@ export default function LoadingScreen({ onComplete }) {
           setTimeout(() => {
             setIsVisible(false)
             if(onComplete) onComplete()
-          }, 1000)
+          }, 800)
           return 100
         }
-        return prev + Math.floor(Math.random() * 3) + 1
+        // Non-linear progress for realism
+        const increment = Math.random() > 0.7 ? Math.floor(Math.random() * 5) + 2 : 1; 
+        return Math.min(prev + increment, 100)
       })
-    }, 40)
+    }, 50)
     return () => clearInterval(interval)
   }, [onComplete])
 
@@ -154,98 +151,109 @@ export default function LoadingScreen({ onComplete }) {
       {isVisible && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
-          className="fixed inset-0 z-[99999] bg-black flex items-center justify-center overflow-hidden"
-          style={{ backgroundColor: '#000000' }}
+          exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeInOut" } }}
+          className="fixed inset-0 z-[99999] bg-black flex flex-col items-center justify-center overflow-hidden font-sans"
         >
-          {/* 3D CANVAS */}
+          {/* 3D BACKGROUND */}
           <div className="absolute inset-0 z-0">
-            <Canvas>
+            <Canvas gl={{ antialias: false, toneMapping: THREE.ReinhardToneMapping, toneMappingExposure: 1.5 }}>
               <CameraRig />
               <color attach="background" args={['#000000']} />
-              <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={0.5} />
+              <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={0.5} />
               
-              <Float speed={1} rotationIntensity={0.2} floatIntensity={0.2}>
+              <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.2}>
                 <MilkyWayGalaxy />
               </Float>
               
-              <ambientLight intensity={0.2} />
-              <fog attach="fog" args={['#000000', 10, 30]} />
+              <ambientLight intensity={0.1} />
             </Canvas>
           </div>
 
-          {/* VIGNETTE & GRAIN OVERLAY (Cinematic Feel) */}
-          <div className="absolute inset-0 pointer-events-none z-[1] bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.95)_100%)] opacity-90" />
+          {/* OVERLAYS */}
+          {/* Vignette */}
+          <div className="absolute inset-0 pointer-events-none z-[1] bg-[radial-gradient(circle_at_center,transparent_10%,rgba(0,0,0,0.8)_100%)]" />
+          {/* Scanlines */}
+          <div className="absolute inset-0 pointer-events-none z-[2] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] opacity-20" />
 
-          {/* CLEAN UI LAYOUT */}
-          <div className="relative z-10 w-full h-full flex flex-col justify-between py-12 px-6 md:py-16 md:px-12 pointer-events-none">
+          {/* UI CONTENT */}
+          <div className="relative z-10 w-full h-full flex flex-col justify-between py-10 px-6 md:py-20 md:px-16 pointer-events-none">
             
-            {/* TOP: Empty for now, lets the galaxy breathe */}
-            <div />
-
-            {/* CENTER: Hero Title */}
-            <div className="flex flex-col items-center justify-center space-y-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                <h1 className="text-white font-black text-5xl md:text-7xl lg:text-8xl tracking-[0.2em] uppercase drop-shadow-2xl">
-                  GRAVITY
-                </h1>
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: "120px" }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="h-[2px] bg-cyan-500/50"
-              />
-
-              <motion.p
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="text-cyan-400/80 font-mono text-sm tracking-[0.4em]"
-              >
-                2K26 // TECHFEST
-              </motion.p>
+            {/* Top Bar - Decorative */}
+            <div className="flex justify-between w-full opacity-60">
+               <motion.div 
+                 initial={{ opacity: 0, x: -20 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 0.5 }}
+                 className="text-[10px] md:text-xs font-mono text-cyan-500 tracking-widest"
+               >
+                 SYS.BOOT.V2.6
+               </motion.div>
+               <motion.div 
+                 initial={{ opacity: 0, x: 20 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 0.5 }}
+                 className="text-[10px] md:text-xs font-mono text-cyan-500 tracking-widest"
+               >
+                 SECURE_CONNECTION
+               </motion.div>
             </div>
 
-            {/* BOTTOM: Technical Loader */}
-            <div className="w-full max-w-2xl mx-auto space-y-2">
-              <div className="flex justify-between items-end px-1">
-                <motion.span 
-                  className="text-cyan-400 font-mono text-xs uppercase tracking-wider"
-                  animate={{ opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
+            {/* CENTER: Main Title */}
+            <div className="flex flex-col items-center justify-center space-y-2 md:space-y-6">
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="text-white font-black text-6xl sm:text-7xl md:text-9xl tracking-[0.15em] uppercase drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] text-center leading-none"
+              >
+                GRAVITY
+              </motion.h1>
+              
+              <div className="flex items-center gap-4">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: "60px" }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="h-[1px] bg-gradient-to-r from-transparent to-cyan-400 hidden md:block"
+                />
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 }}
+                  className="text-cyan-200/90 font-mono text-xs md:text-sm tracking-[0.6em] uppercase"
                 >
-                  Initializing Neural Link...
-                </motion.span>
-                <span className="text-white font-mono text-xl md:text-2xl font-bold tabular-nums">
-                  {Math.min(100, progress)}%
+                  2K26 // TECHFEST
+                </motion.p>
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: "60px" }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="h-[1px] bg-gradient-to-l from-transparent to-cyan-400 hidden md:block"
+                />
+              </div>
+            </div>
+
+            {/* BOTTOM: Progress Bar */}
+            <div className="w-full max-w-md md:max-w-3xl mx-auto space-y-3">
+              <div className="flex justify-between items-end px-1">
+                <span className="text-cyan-400 font-mono text-[10px] md:text-xs uppercase tracking-wider">
+                  {progress < 30 ? "Initializing..." : progress < 70 ? "Loading Assets..." : "Finalizing..."}
+                </span>
+                <span className="text-white font-mono text-lg md:text-xl font-bold">
+                  {progress}<span className="text-sm text-white/50">%</span>
                 </span>
               </div>
 
-              {/* Minimal Progress Bar */}
-              <div className="w-full h-[2px] bg-white/10 overflow-hidden">
+              {/* Progress Bar Container */}
+              <div className="relative w-full h-1 bg-white/10 rounded-full overflow-hidden">
                 <motion.div 
-                  className="h-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.8)]"
+                  className="absolute top-0 left-0 h-full bg-gradient-to-r from-cyan-600 via-cyan-400 to-white"
                   style={{ width: `${progress}%` }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                />
-              </div>
-
-              {/* Status Indicators */}
-              <div className="flex gap-4 pt-2">
-                {['SYSTEM', 'ORBIT', 'NETWORK'].map((item, i) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <div className={`w-1.5 h-1.5 rounded-full ${progress > (i + 1) * 25 ? 'bg-cyan-400' : 'bg-white/20'}`} />
-                    <span className={`text-[10px] font-mono tracking-widest ${progress > (i + 1) * 25 ? 'text-white/80' : 'text-white/20'}`}>
-                      {item}
-                    </span>
-                  </div>
-                ))}
+                  transition={{ ease: "linear" }}
+                >
+                  {/* Shimmer effect on bar */}
+                  <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-white/50 to-transparent transform skew-x-12 translate-x-full animate-shimmer" />
+                </motion.div>
               </div>
             </div>
 

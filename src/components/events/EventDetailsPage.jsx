@@ -152,9 +152,10 @@ export default function EventDetailsPage({ eventData }) {
                           {sub.title}
                         </h2>
                         
-                        <p className="text-white/70 text-lg leading-relaxed mb-8 border-l-2 border-white/10 pl-6">
-                          {sub.description}
-                        </p>
+                        <div
+                          className="text-white/70 text-lg leading-relaxed mb-8 border-l-2 border-white/10 pl-6 whitespace-pre-line"
+                          dangerouslySetInnerHTML={{ __html: sub.description }}
+                        />
                         
                         {/* 📊 HUD STATS GRID */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
@@ -244,17 +245,45 @@ export default function EventDetailsPage({ eventData }) {
                                   ))}
                                 </ul>
                               ) : section.judges ? (
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                   {section.judges.map((judge, j) => (
-                                    <div key={j} className="text-center p-4 bg-white/5 rounded-lg border border-white/10">
-                                      <img 
-                                        src={judge.photo} 
-                                        alt={judge.name}
-                                        className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-white/20"
-                                        onError={(e) => { e.target.src = '/assets/images/placeholder-avatar.png' }}
+                                    <div 
+                                      key={j} 
+                                      className="
+                                        group/judge relative text-center p-6 
+                                        bg-gradient-to-br from-white/[0.08] to-white/[0.02] 
+                                        rounded-2xl border border-white/40
+                                        hover:border-white/60 hover:bg-white/[0.12]
+                                        transition-all duration-500
+                                        hover:scale-[1.02] hover:shadow-2xl
+                                      "
+                                    >
+                                      {/* Glow effect on hover */}
+                                      <div 
+                                        className="absolute inset-0 rounded-2xl opacity-0 group-hover/judge:opacity-100 transition-opacity duration-500 blur-xl -z-10"
+                                        style={{ background: `radial-gradient(circle at center, ${eventData.planetAccent}20, transparent)` }}
                                       />
-                                      <h5 className="font-bold text-white/90 text-sm">{judge.name}</h5>
-                                      <p className="text-white/50 text-xs mt-1">{judge.designation}</p>
+                                      
+                                      {/* Judge Photo */}
+                                      <div className="relative w-full mx-auto mb-5">
+                                        <img 
+                                          src={judge.photo} 
+                                          alt={judge.name}
+                                          className="
+                                            relative w-full h-auto object-contain
+                                            transition-all duration-500
+                                            group-hover/judge:scale-105
+                                          "
+                                          onError={(e) => { e.target.src = '/assets/images/placeholder-avatar.png' }}
+                                        />
+                                      </div>
+                                      
+                                      {/* Judge Name */}
+                                      <h5 
+                                        className="font-bold text-xl tracking-wide text-white transition-colors"
+                                      >
+                                        {judge.name}
+                                      </h5>
                                     </div>
                                   ))}
                                 </div>

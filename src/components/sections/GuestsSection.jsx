@@ -1,30 +1,26 @@
 import { motion } from "framer-motion"
 
 export default function GuestsSection() {
-  // 🧑‍⚖️ GUEST DATA MATCHING YOUR IMAGES
+  // 🧑‍⚖️ GUEST DATA
   const GUESTS = [
     {
       title: "Chief Guest",
       name: "Prof. Dr. Manish Bhalla",
-      role: "Vice Chancellor DYPIU Akurdi, Pune",
       image: "/assets/images/chief-guest.png",
     },
     {
       title: "Distinguished Guest",
       name: "Dr. Dheeraj Agrawal",
-      role: "Pro-Vice Chancellor, Dnyan Prasad Global University, D. Y. Patil Group, Pune",
       image: "/assets/images/distinguished-guest.png",
     },
     {
       title: "Judge – Pitch Perfect",
       name: "Mr. Deovrut Jadhav",
-      role: "Rayat Centenary Innovation and Incubation Foundation, Navi Mumbai",
       image: "/assets/images/judge1.png",
     },
     {
       title: "Judge – Pitch Perfect",
       name: "Dr. Chandrashekhar Talathi",
-      role: "Director, LeapSwitch Networks Pvt. Ltd.",
       image: "/assets/images/judge2.png",
     },
   ]
@@ -32,7 +28,7 @@ export default function GuestsSection() {
   return (
     <section
       id="guests"
-      className="relative py-20 px-4 sm:px-6"
+      className="relative py-20 px-4 sm:px-6 z-10"
       style={{ background: "rgba(0,0,0,0.35)" }}
     >
       <div className="max-w-7xl mx-auto text-center">
@@ -45,16 +41,17 @@ export default function GuestsSection() {
           transition={{ duration: 0.6 }}
           className="
             text-3xl sm:text-4xl md:text-5xl
-            font-black uppercase mb-14
+            font-black uppercase mb-16
             text-transparent bg-clip-text
             bg-gradient-to-r from-amber-300 via-white to-indigo-400
+            drop-shadow-lg
           "
         >
           Our Guests
         </motion.h2>
 
-        {/* 👥 GUEST GRID (4 Columns) */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* 👥 GUEST GRID - No Cards, Just Content */}
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 items-end">
           {GUESTS.map((guest, index) => (
             <motion.div
               key={index}
@@ -63,46 +60,45 @@ export default function GuestsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="
-                rounded-2xl
-                bg-gradient-to-br from-[#0a0a1a]/90 via-[#111122]/90 to-[#0a0a1a]/90
-                border border-indigo-500/30
-                shadow-[0_0_40px_rgba(99,102,241,0.15)]
-                p-6
+                group
+                flex flex-col items-center justify-end
                 text-center
-                hover:scale-105 transition-transform duration-300
-                flex flex-col items-center
+                transition-transform duration-300
               "
             >
-              {/* IMAGE */}
-              <div className="relative mb-4">
-                <div className="absolute inset-0 bg-indigo-500/20 blur-xl rounded-full" />
+              {/* IMAGE CONTAINER (Rectangular, No Crop) */}
+              <div className="relative mb-5 w-full max-w-[220px]">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-indigo-500/20 blur-[25px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
                 <img
                   src={guest.image}
                   alt={guest.name}
                   className="
                     relative
-                    w-32 h-32 md:w-36 md:h-36
-                    object-cover rounded-full
-                    border-2 border-indigo-500/30
-                    shadow-lg
+                    w-full h-auto
+                    object-contain rounded-xl
+                    border-2 border-white/40
+                    shadow-[0_0_20px_rgba(255,255,255,0.15)]
+                    group-hover:scale-105 group-hover:border-white/60
+                    transition-all duration-300
                   "
                 />
               </div>
 
-              {/* TITLE */}
-              <p className="text-amber-400 text-[10px] sm:text-xs uppercase tracking-widest font-mono mb-2 font-bold">
-                {guest.title}
-              </p>
+              {/* TEXT DETAILS */}
+              <div className="z-10">
+                {/* TITLE / TYPE */}
+                <p className="text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-widest font-mono mb-2">
+                  {guest.title}
+                </p>
 
-              {/* NAME */}
-              <h3 className="text-lg font-bold text-white mb-2 leading-tight">
-                {guest.name}
-              </h3>
+                {/* NAME */}
+                <h3 className="text-lg sm:text-xl font-bold text-white leading-tight drop-shadow-md">
+                  {guest.name}
+                </h3>
+              </div>
 
-              {/* ROLE */}
-              <p className="text-indigo-200/60 text-xs leading-relaxed">
-                {guest.role}
-              </p>
             </motion.div>
           ))}
         </div>
@@ -114,13 +110,13 @@ export default function GuestsSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
           className="
-            mt-16
+            mt-20
             max-w-3xl mx-auto
             border-t border-indigo-500/30
-            pt-6
+            pt-8
           "
         >
-          <p className="text-sm sm:text-base text-indigo-100/80 font-medium">
+          <p className="text-sm sm:text-base text-indigo-100/80 font-medium tracking-wide">
             For the{" "}
             <span className="text-amber-400 font-bold">
               Top 3 Teams of Pitch Perfect

@@ -18,7 +18,13 @@ export const EVENTS = [
     subEvents: [
       {
         title: "Pitch Perfect Main Event",
-        description: "Present your business model to a panel of investors. Focus on innovation, feasibility, and market impact. (PPT Deadline: 18th Feb)",
+        description:
+          "Present your business model to a panel of investors. Focus on innovation, feasibility, and market impact.\n" +
+          "(PPT Deadline: 18th Feb)\n\n" +
+          
+          "<span style='color:#ffd700'>Legal consultation for Top 3 teams, including professional legal guidance and contract review.</span>\n" +
+          "<span style='color:#ffd700'>Copyright and IP support with registration guidance and trademark assistance.</span>",
+        
         image: "/assets/images/pitchperfect.png",
         fee: "₹499 / Team",
         date: "20 Feb 2026",
@@ -45,7 +51,7 @@ export const EVENTS = [
               "Originality: Ideas must be original. Plagiarism leads to disqualification.",
               "Pitch Format: 5-minute pitch + 3-minute Q&A.",
               "Prototype: Encouraged but not mandatory.",
-              "Judges’ Decision: Final and binding."
+              "Judges' Decision: Final and binding."
             ]
           },
           {
@@ -75,6 +81,19 @@ export const EVENTS = [
               "1st Prize: ₹50,000",
               "2nd Prize: ₹30,000",
               "3rd Prize: ₹20,000"
+            ]
+          },
+          {
+            title: "Our Esteemed Judges",
+            judges: [
+              {
+                name: "Mr. Deovrut Jadhav",
+                photo: "/assets/images/judge1.png"
+              },
+              {
+                name: "Dr. Chandrashekhar Talathi",
+                photo: "/assets/images/judge2.png"
+              }
             ]
           }
         ]
@@ -112,7 +131,7 @@ export const EVENTS = [
           {
             title: "Event Objectives",
             points: [
-              "To enhance students’ creativity and storytelling abilities.",
+              "To enhance students' creativity and storytelling abilities.",
               "To provide practical exposure to digital marketing through film promotion.",
               "To encourage teamwork, planning, and execution skills."
             ]
@@ -333,7 +352,7 @@ export const EVENTS = [
           {
             title: "Theme & Eligibility",
             points: [
-              "Theme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
+              "Theme: 'Lab to Life: Pharmaceutical Development Models & Formulations'",
               "Eligibility: D. Pharm, B. Pharm, M. Pharm, Pharm. D, Ph.D. (Pursuing).",
               "Department: Participants must be from the Pharmacy department.",
               "Team Size: 2-4 participants per team.",
@@ -372,85 +391,7 @@ export const EVENTS = [
             ]
           }
         ]
-      },
-
-      /*
-      {
-        title: "THE PODIUM",
-        description: "Technical Paper Presentation. Explore future technologies like Green Hydrogen, AI, and Smart Systems.",
-        image: "/assets/images/thepodium.png",
-        fee: "₹100 / Team",
-        date: "20 Feb",
-        rounds: "Paper Submission -> Presentation",
-        prize: "Prize Money worth upto 10K",
-        registrationLink: "https://unstop.com/",
-        ruleBook: [
-          {
-            title: "Proposed Domains",
-            points: [
-              "1. Green Hydrogen and its Future in Power Sector",
-              "2. DC Fast Charging and Its Impact on Battery Life",
-              "3. Building Information Modeling (BIM) in Construction",
-              "4. Smart Water resource Management",
-              "5. Drone Technology & Control System",
-              "6. EV Charging infrastructure- challenges & Solution in India",
-              "7. Smart Manufacturing & Industry 4.0",
-              "8. Recycling & Waste Management in Mechanical Engineering",
-              "9. Generative Artificial Intelligence in Engineering Applications",
-              "10. Edge Computing for Real-Time Engineering Applications"
-            ]
-          },
-          {
-            title: "General Rules",
-            points: [
-              "Team Size: Upto 2 participants per team.",
-              "Domain Selection: Teams must choose one domain at registration.",
-              "Originality: Paper must be original. Plagiarism leads to disqualification.",
-              "Pitch Format: 5-minute pitch + 3-minute Q&A.",
-              "Judges’ Decision: Final and binding."
-            ]
-          },
-          {
-            title: "Paper Format Guidelines",
-            points: [
-              "Length: 1800-2000 words (4-5 Pages).",
-              "Paper Size: A4, 70 GSM, White. Font: Times New Roman.",
-              "Font Size: Title 14 (Bold), Sub Titles 12 (Bold), Text 12 (Normal).",
-              "Margins: Top 0.75”, Bottom 0.5”, Left 1.25”, Right 1”.",
-              "Columns: Two columns (3.5” wide, 0.25” gap).",
-              "Line Spacing: 1.5.",
-              "Printing: Single-sided only."
-            ]
-          },
-          {
-            title: "Content & Presentation",
-            points: [
-              "Structure: Title, Author, Institute, Abstract, Contents, Conclusions, References.",
-              "Presentation: PowerPoint of 8–10 slides only.",
-              "Heading of Table on top; Figures below."
-            ]
-          },
-          {
-            title: "Evaluation Criteria (100 Marks)",
-            points: [
-              "Quality of information/Knowledge: 20",
-              "Creativity, Innovation in presentation: 20",
-              "Response to questions: 20",
-              "Technology & Domain Relevance: 20",
-              "Objectives of the paper and action plan: 20"
-            ]
-          },
-          {
-            title: "Important Dates",
-            points: [
-              "PPT Submission Deadline: 18/02/2026",
-              "Event Date: 20th Feb",
-              "Prize Money worth upto 10K"
-            ]
-          // ... (The Podium Rulebook Content)
-        ]
       }
-      */
     ]
   },
 
@@ -564,7 +505,7 @@ export const EVENTS = [
         ]
       }
     ]
-  },
+  }
 ];
 
 export default EVENTS;
