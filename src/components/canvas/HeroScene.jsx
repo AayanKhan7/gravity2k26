@@ -8,12 +8,18 @@ export default function HeroScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 45 }}
-      gl={{ antialias: false, powerPreference: 'high-performance', stencil: false }}
+      gl={{
+        antialias: false,
+        powerPreference: 'high-performance',
+        stencil: false,
+      }}
       dpr={[1, 1.25]}
-      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+      style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'transparent',
+      }}
     >
-      <color attach="background" args={['#020202']} />
-      
       <ambientLight intensity={0.25} />
       <directionalLight position={[5, 2, 5]} intensity={2.4} color="#ffecd1" />
       <directionalLight position={[-4, -1, -2]} intensity={0.9} color="#6cb8ff" />
@@ -21,7 +27,6 @@ export default function HeroScene() {
       <Suspense fallback={null}>
         <StarField />
         <EarthModel />
-
         <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
       </Suspense>
     </Canvas>

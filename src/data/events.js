@@ -10,21 +10,22 @@ export const EVENTS = [
     planetAccent: '#FFD700',
     path: '/pitch-perfect',
     description: "Pitch your startup vision to investors and secure funding for your empire. Domains: Fintech, HealthTech, Agri-Tech, Sustainable Solutions, & EdTech.",
-    prizePool: 'Prize Money worth upto 1 Lakh', 
+    prizePool: 'Total Prize: ₹1 Lakh (1st: 50k, 2nd: 30k, 3rd: 20k)',
     registrationFee: '₹499 per team',
     teamSize: 'Up to 4 members',
-    villainImg: "/assets/images/pitchperfect1.png", 
-    
+    villainImg: "/assets/images/pitchperfect1.png",
+
     subEvents: [
       {
         title: "Pitch Perfect Main Event",
-        description: "Present your business model to a panel of investors. Focus on innovation, feasibility, and market impact. (PPT Deadline: 18th Feb).",
-        image: "/assets/images/pitchperfect.png", 
+        description: "Present your business model to a panel of investors. Focus on innovation, feasibility, and market impact. (PPT Deadline: 18th Feb)",
+        image: "/assets/images/pitchperfect.png",
         fee: "₹499 / Team",
         date: "20 Feb 2026",
         rounds: "PPT Submission -> Final Pitch",
-        prize: "Prize Money worth upto 1 Lakh",
+        prize: "1st: ₹50,000 | 2nd: ₹30,000 | 3rd: ₹20,000",
         registrationLink: "https://unstop.com/o/ys53oDj?lb=Qq066NCo&utm_medium=Share&utm_source=mayurpat57712&utm_campaign=Competitions",
+
         ruleBook: [
           {
             title: "Proposed Domains",
@@ -71,7 +72,9 @@ export const EVENTS = [
             points: [
               "PPT Submission Deadline: 18/02/2026",
               "Event Date: 20th Feb",
-              "Prize Money worth upto 1 Lakh"
+              "1st Prize: ₹50,000",
+              "2nd Prize: ₹30,000",
+              "3rd Prize: ₹20,000"
             ]
           }
         ]
@@ -90,7 +93,7 @@ export const EVENTS = [
     planetAccent: '#FF4757',
     path: '/cineclash',
     description: "Direct, edit, and showcase your cinematic saga. A digital marketing–oriented competition to encourage storytelling and branding.",
-    prizePool: 'Prize money worth upto 50k', 
+    prizePool: 'Prize money worth upto 50k',
     registrationFee: '₹399 per team',
     teamSize: 'Individual or Team',
     villainImg: "/assets/images/cineclash1.png",
@@ -99,12 +102,12 @@ export const EVENTS = [
       {
         title: "CineClash Competition",
         description: "Create a short film aligning with the theme. Round 1 focuses on promotion (trailer), Round 2 on content quality.",
-        image: "/assets/images/cineclash.png", 
+        image: "/assets/images/cineclash.png",
         fee: "₹399 / Team",
         date: "21 Feb 2026",
         rounds: "2 Rounds",
         prize: "Prize money worth upto 50k",
-        registrationLink:"https://unstop.com/o/qZBsVWS?lb=Jmp6eNQX&utm_medium=Share&utm_source=shindshr10671&utm_campaign=Events",
+        registrationLink: "https://unstop.com/o/qZBsVWS?lb=Jmp6eNQX&utm_medium=Share&utm_source=shindshr10671&utm_campaign=Events",
         ruleBook: [
           {
             title: "Event Objectives",
@@ -153,7 +156,7 @@ export const EVENTS = [
     title: 'THE QUADRANT',
     type: 'Technical Event',
     planetType: 'neptune',
-    planetAccent: '#3f8cff', 
+    planetAccent: '#3f8cff',
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, PharmaTech or Paper Presentation.",
     prizePool: 'Prize money worth upto 1 Lakh 30k',
@@ -166,8 +169,8 @@ export const EVENTS = [
         title: "FrameForge",
         description: "Design a line-following vehicle with a modular cage. No glue/welding allowed—only mechanical locking.",
         image: "/assets/images/frameforge.png",
-        fee: "₹199 / Team", 
-        date: "20 Feb", 
+        fee: "₹199 / Team",
+        date: "20 Feb",
         rounds: "Single Round Race",
         prize: "Prize money worth upto 30k",
         registrationLink: "https://unstop.com/o/hQJqevc?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
@@ -214,7 +217,7 @@ export const EVENTS = [
           }
         ]
       },
-      
+
       {
         title: "BUG 2 BUILD (Coding)",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
@@ -272,7 +275,7 @@ export const EVENTS = [
           }
         ]
       },
-      
+
       {
         title: "Infrathon (Model Making)",
         description: "Hands-on infrastructure challenge: Design a Geodesic Dome (Round 1) and create a Building Facade (Round 2). Theme: Efficient Structures for a Sustainable Future.",
@@ -315,12 +318,16 @@ export const EVENTS = [
 
       {
         title: "PHARMASPARK",
-        description: "Theme: Lab to Life (Pharmaceutical Development Models & Formulations). Participating domains: Model Making & Herbal Formulations.",
+        description: "PHARMASPARK features two distinct events:\n\n1. MODEL MAKING: Create a model related to Pharmaceutical Sciences with a poster/PPT.\n2. HERBAL FORMULATION: Prepare herbal formulations (Creams, Gels, etc.) with analysis reports.",
         image: "/assets/images/pharmatech.png",
         fee: "₹199 / TEAM",
         date: "20 Feb",
-        rounds: "Model Making / Herbal Formulation",
+        rounds: "Model & Formulation",
         prize: "Prize money worth upto 30k",
+        multiButton: [
+          { label: "Register: Model Making", link: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions" },
+          { label: "Register: Herbal Form.", link: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions" }
+        ],
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
@@ -334,7 +341,7 @@ export const EVENTS = [
             ]
           },
           {
-            title: "Event 1: Model Making",
+            title: "EVENT 1: Model Making Rules",
             points: [
               "Requirement: A model related to Pharmaceutical Sciences.",
               "Presentation: Self-explanatory poster or PowerPoint presentation (Laptop required).",
@@ -345,7 +352,7 @@ export const EVENTS = [
             ]
           },
           {
-            title: "Event 2: Herbal Formulation",
+            title: "EVENT 2: Herbal Formulation Rules",
             points: [
               "Topics: Creams, Gels, Powders, Hair tonics, etc.",
               "Requirement: Prepared formulations with ingredient details, evaluation parameters, and analysis report.",
@@ -367,16 +374,16 @@ export const EVENTS = [
         ]
       },
 
-      // ✅ ADDED NEW EVENT: THE PODIUM
+      /*
       {
         title: "THE PODIUM",
         description: "Technical Paper Presentation. Explore future technologies like Green Hydrogen, AI, and Smart Systems.",
-        image: "/assets/images/thepodium.png", 
-        fee: "₹100 / Team", // Standard fee assumed for consistency
+        image: "/assets/images/thepodium.png",
+        fee: "₹100 / Team",
         date: "20 Feb",
         rounds: "Paper Submission -> Presentation",
         prize: "Prize Money worth upto 10K",
-        registrationLink: "https://unstop.com/", // Placeholder
+        registrationLink: "https://unstop.com/",
         ruleBook: [
           {
             title: "Proposed Domains",
@@ -440,9 +447,10 @@ export const EVENTS = [
               "Event Date: 20th Feb",
               "Prize Money worth upto 10K"
             ]
-          }
+          // ... (The Podium Rulebook Content)
         ]
       }
+      */
     ]
   },
 
@@ -454,7 +462,7 @@ export const EVENTS = [
     title: 'NEXUS',
     type: 'Gaming Event',
     planetType: 'uranus',
-    planetAccent: '#66d1c1', 
+    planetAccent: '#66d1c1',
     path: '/nexus',
     description: "Battle through virtual arenas in this high-intensity esports tournament. Prove your dominance.",
     prizePool: 'Prize money worth upto 45k',
@@ -557,4 +565,6 @@ export const EVENTS = [
       }
     ]
   },
-]
+];
+
+export default EVENTS;

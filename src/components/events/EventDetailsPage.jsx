@@ -234,14 +234,31 @@ export default function EventDetailsPage({ eventData }) {
                                 {section.title}
                               </h4>
                               
-                              <ul className="space-y-3">
-                                {section.points.map((point, j) => (
-                                  <li key={j} className="text-white/60 text-sm leading-relaxed flex items-start gap-3 group-hover/card:text-white/80 transition-colors">
-                                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-white/20" />
-                                    <span>{point}</span>
-                                  </li>
-                                ))}
-                              </ul>
+                              {section.points ? (
+                                <ul className="space-y-3">
+                                  {section.points.map((point, j) => (
+                                    <li key={j} className="text-white/60 text-sm leading-relaxed flex items-start gap-3 group-hover/card:text-white/80 transition-colors">
+                                      <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-white/20" />
+                                      <span>{point}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : section.judges ? (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                  {section.judges.map((judge, j) => (
+                                    <div key={j} className="text-center p-4 bg-white/5 rounded-lg border border-white/10">
+                                      <img 
+                                        src={judge.photo} 
+                                        alt={judge.name}
+                                        className="w-20 h-20 rounded-full mx-auto mb-3 object-cover border-2 border-white/20"
+                                        onError={(e) => { e.target.src = '/assets/images/placeholder-avatar.png' }}
+                                      />
+                                      <h5 className="font-bold text-white/90 text-sm">{judge.name}</h5>
+                                      <p className="text-white/50 text-xs mt-1">{judge.designation}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              ) : null}
                             </div>
                           ))}
                         </div>

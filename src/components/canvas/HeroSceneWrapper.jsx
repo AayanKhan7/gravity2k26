@@ -5,27 +5,26 @@ export default function HeroSceneWrapper() {
   const wrapperRef = useRef(null)
 
   useEffect(() => {
+    // ✅ FORCE START STATE ON REFRESH
+    if (wrapperRef.current) {
+      wrapperRef.current.style.opacity = '1'
+    }
+
+    // ✅ FORCE SCROLL TO TOP ON REFRESH
+    window.scrollTo(0, 0)
+
     const handleScroll = () => {
-      if (!wrapperRef.current) return
-      
       const heroSection = document.getElementById('hero')
-      if (!heroSection) return
+      if (!heroSection || !wrapperRef.current) return
 
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
       const scrollPosition = window.scrollY + window.innerHeight
 
-      // Hide Earth when scrolled past hero section
-      if (scrollPosition > heroBottom + 100) {
-        wrapperRef.current.style.opacity = '0'
-        wrapperRef.current.style.pointerEvents = 'none'
-      } else {
-        wrapperRef.current.style.opacity = '1'
-        wrapperRef.current.style.pointerEvents = 'none'
-      }
+      wrapperRef.current.style.opacity =
+        scrollPosition > heroBottom + 100 ? '0' : '1'
     }
 
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Check on mount
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -33,12 +32,9 @@ export default function HeroSceneWrapper() {
   return (
     <div
       ref={wrapperRef}
-      className="fixed inset-0 w-full h-full"
-      style={{
-        zIndex: 1,
-        pointerEvents: 'none',
-        transition: 'opacity 0.8s ease-out'
-      }}
+      id="three-canvas-root"
+      className="fixed inset-0 z-0 pointer-events-none"
+      style={{ transition: 'opacity 0.8s ease-out' }}
     >
       <HeroScene />
     </div>

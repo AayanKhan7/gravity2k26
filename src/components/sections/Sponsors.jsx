@@ -4,6 +4,12 @@ import { memo } from 'react'
 
 // ✅ 1. SPONSORS LIST (Corporate/Technical)
 const SPONSORS = [
+  // ⭐ Moved to Sponsors List at position 1
+  {
+    name: "IEEE Pune Section",
+    logo: "/assets/images/IEEE pune.png",
+    link: "#"
+  },
   {
     name: "DigiGhar",
     logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png",
@@ -50,7 +56,7 @@ const COMMUNITY_PARTNERS = [
   }
 ]
 
-// 📦 Reusable Card Component to avoid code duplication
+// 📦 Reusable Card Component
 const SponsorCard = ({ item, index }) => (
   <motion.div
     key={index}

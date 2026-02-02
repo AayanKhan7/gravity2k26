@@ -1,14 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 
-// Shader for the blue atmosphere glow
 const vertexShader = `
   varying vec3 vNormal;
   void main() {
     vNormal = normalize(normalMatrix * normal);
-    gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
   }
 `
 
@@ -22,8 +21,16 @@ const fragmentShader = `
 
 export default function EarthModel() {
   const earthRef = useRef()
-  
-  const colorMap = useTexture('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg')
+
+  const colorMap = useTexture(
+    'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg'
+  )
+
+  // ✅ MEMOIZED GEOMETRY (CRITICAL FIX)
+  const sphereGeometry = useMemo(
+    () => new THREE.SphereGeometry(3.5, 48, 48),
+    []
+  )
 
   useEffect(() => {
     if (!colorMap) return
@@ -32,33 +39,31 @@ export default function EarthModel() {
     colorMap.generateMipmaps = false
   }, [colorMap])
 
-  useFrame(({ clock }) => {
+  useFrame((_, delta) => {
     if (earthRef.current) {
-      earthRef.current.rotation.y = clock.getElapsedTime() * 0.05
+      earthRef.current.rotation.y += delta * 0.02
     }
   })
 
   return (
     <group position={[0, -3.5, 0]} rotation={[0.4, 0, 0]}>
-      {/* 1. Earth Surface */}
-      <mesh ref={earthRef} receiveShadow>
-        <sphereGeometry args={[3.5, 48, 48]} />
-        <meshStandardMaterial 
+      {/* Earth */}
+      <mesh ref={earthRef} geometry={sphereGeometry}>
+        <meshStandardMaterial
           map={colorMap}
           roughness={0.8}
           metalness={0.05}
         />
       </mesh>
 
-      {/* 2. Atmosphere Glow */}
-      <mesh scale={[1.1, 1.1, 1.1]}>
-        <sphereGeometry args={[3.5, 48, 48]} />
+      {/* Atmosphere */}
+      <mesh geometry={sphereGeometry} scale={1.1}>
         <shaderMaterial
           vertexShader={vertexShader}
           fragmentShader={fragmentShader}
           blending={THREE.AdditiveBlending}
           side={THREE.BackSide}
-          transparent={true}
+          transparent
         />
       </mesh>
     </group>

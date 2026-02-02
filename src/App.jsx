@@ -1,12 +1,15 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { motion } from "framer-motion"
 
 // ✅ EAGER IMPORTS
 import HeroSceneWrapper from './components/canvas/HeroSceneWrapper'
 import HeroSection from './components/hero/HeroSection'
 import Footer from './components/common/Footer'
 import About from './components/sections/About'
-import Navbar from './components/common/Navbar' // 👈 IMPORT NAVBAR HERE
+import GuestsSection from './components/sections/GuestsSection'
+import Navbar from './components/common/Navbar'
+import LoadingScreen from './components/common/LoadingScreen'
 import { EVENTS } from './data/events'
 
 // 💤 LAZY IMPORTS
@@ -25,7 +28,9 @@ const LoadingSpinner = () => (
 
 function App() {
   const [enableStarfield, setEnableStarfield] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
+  // ✅ Enable / Disable stars based on device & motion preference
   useEffect(() => {
     const widthQuery = window.matchMedia('(max-width: 768px)')
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -51,35 +56,76 @@ function App() {
   const nexusData = EVENTS?.find(e => e.id === 'nexus')
 
   return (
-    <Router>
-      <div className="relative overflow-x-hidden text-white">
-        
-        {enableStarfield && (
-          <Suspense fallback={null}>
-            <GlobalStarBackground enabled={enableStarfield} />
-          </Suspense>
-        )}
+    <>
+      {/* 🚀 LOADING SCREEN */}
+      <LoadingScreen onComplete={() => setIsLoading(false)} />
 
-        <Routes>
-          <Route path="/" element={<HomeLayout />} />
+      {/* 🌍 MAIN WEBSITE */}
+      {!isLoading && (
+        <Router>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative overflow-x-hidden text-white"
+          >
+            {/* ⭐ STAR BACKGROUND (WORKING VERSION) */}
+            {enableStarfield && (
+              <Suspense fallback={null}>
+                <GlobalStarBackground enabled={enableStarfield} />
+              </Suspense>
+            )}
 
-          {/* EVENTS PAGES */}
-          <Route path="/pitch-perfect" element={<Suspense fallback={<div className="min-h-screen bg-black" />}><EventDetailsPage eventData={pitchData} /></Suspense>} />
-          <Route path="/cineclash" element={<Suspense fallback={<div className="min-h-screen bg-black" />}><EventDetailsPage eventData={cineData} /></Suspense>} />
-          <Route path="/quadrant" element={<Suspense fallback={<div className="min-h-screen bg-black" />}><EventDetailsPage eventData={quadrantData} /></Suspense>} />
-          <Route path="/nexus" element={<Suspense fallback={<div className="min-h-screen bg-black" />}><EventDetailsPage eventData={nexusData} /></Suspense>} />
-        </Routes>
-      </div>
-    </Router>
+            <Routes>
+              <Route path="/" element={<HomeLayout />} />
+
+              {/* 🎯 EVENT PAGES */}
+              <Route
+                path="/pitch-perfect"
+                element={
+                  <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                    <EventDetailsPage eventData={pitchData} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/cineclash"
+                element={
+                  <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                    <EventDetailsPage eventData={cineData} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/quadrant"
+                element={
+                  <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                    <EventDetailsPage eventData={quadrantData} />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/nexus"
+                element={
+                  <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                    <EventDetailsPage eventData={nexusData} />
+                  </Suspense>
+                }
+              />
+            </Routes>
+          </motion.div>
+        </Router>
+      )}
+    </>
   )
 }
 
-// 📦 HOME LAYOUT (Navbar added here)
+// 📦 HOME LAYOUT
 function HomeLayout() {
   return (
     <>
-      {/* ✅ FIXED NAVBAR: Placed here to sit ON TOP of everything */}
-      <div 
+      {/* 🧭 FIXED NAVBAR */}
+      <div
         style={{
           position: "fixed",
           top: "20px",
@@ -87,8 +133,8 @@ function HomeLayout() {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          zIndex: 9999,      // Maximum Z-Index
-          pointerEvents: "none" // Allows clicking through the empty sides
+          zIndex: 9999,
+          pointerEvents: "none",
         }}
       >
         <div style={{ pointerEvents: "auto" }}>
@@ -96,33 +142,50 @@ function HomeLayout() {
         </div>
       </div>
 
+      {/* 🌍 EARTH CANVAS */}
       <HeroSceneWrapper />
-      
+
+      {/* 📄 PAGE CONTENT */}
       <div className="relative z-10">
         <main>
-          <section id="hero" className="min-h-screen flex items-center justify-center px-4 md:px-0" style={{ background: 'rgba(0,0,0,0.35)' }}>
+          <section
+            id="hero"
+            className="min-h-screen flex items-center justify-center px-4 md:px-0"
+            style={{ background: 'rgba(0,0,0,0.35)' }}
+          >
             <HeroSection />
           </section>
 
           <div style={{ background: 'rgba(0,0,0,0.35)' }}>
             <About />
             <div className="h-24 md:h-40" />
+
+            {/* 👥 GUESTS SECTION */}
+            <GuestsSection />
+
+            <div className="h-24 md:h-40" />
+
+            {/* 🎯 EVENTS SECTION */}
             <section id="events" className="relative min-h-screen">
               <Suspense fallback={<LoadingSpinner />}>
                 <PlanetEvents />
               </Suspense>
             </section>
+
             <Suspense fallback={<LoadingSpinner />}>
               <Gallery />
             </Suspense>
+
             <Suspense fallback={<div className="h-20" />}>
               <Sponsors />
             </Suspense>
+
             <Suspense fallback={<div className="h-20" />}>
               <Contact />
             </Suspense>
           </div>
         </main>
+
         <Footer />
       </div>
     </>
