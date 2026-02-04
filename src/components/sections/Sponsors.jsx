@@ -4,7 +4,6 @@ import { memo } from 'react'
 
 // ✅ 1. SPONSORS LIST (Corporate/Technical)
 const SPONSORS = [
-  // ⭐ Moved to Sponsors List at position 1
   {
     name: "IEEE Pune Section",
     logo: "/assets/images/IEEE pune.png",
@@ -52,6 +51,17 @@ const COMMUNITY_PARTNERS = [
   {
     name: "IEEE TAE Student Branch",
     logo: "/assets/images/IEEELOGO2.png",
+    link: "#"
+  },
+  // ⭐ Added New Partners Here
+  {
+    name: "Ctrl.",
+    logo: "/assets/images/ctrldot.png",
+    link: "#"
+  },
+  {
+    name: "API Community",
+    logo: "/assets/images/apicommunity.jpeg",
     link: "#"
   }
 ]

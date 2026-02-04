@@ -21,10 +21,8 @@ export const EVENTS = [
         description:
           "Present your business model to a panel of investors. Focus on innovation, feasibility, and market impact.\n" +
           "(PPT Deadline: 18th Feb)\n\n" +
-          
           "<span style='color:#ffd700'>Legal consultation for Top 3 teams, including professional legal guidance and contract review.</span>\n" +
           "<span style='color:#ffd700'>Copyright and IP support with registration guidance and trademark assistance.</span>",
-        
         image: "/assets/images/pitchperfect.png",
         fee: "₹499 / Team",
         date: "20 Feb 2026",
@@ -51,7 +49,7 @@ export const EVENTS = [
               "Originality: Ideas must be original. Plagiarism leads to disqualification.",
               "Pitch Format: 5-minute pitch + 3-minute Q&A.",
               "Prototype: Encouraged but not mandatory.",
-              "Judges' Decision: Final and binding."
+              "Judges’ Decision: Final and binding."
             ]
           },
           {
@@ -178,7 +176,7 @@ export const EVENTS = [
     planetAccent: '#3f8cff',
     path: '/quadrant',
     description: "Engineer solutions and decode challenges. Choose your battlefield: Robotics, Coding, DevOps, PharmaTech or Paper Presentation.",
-    prizePool: 'Prize money worth upto 1 Lakh 30k',
+    prizePool: 'Prize money worth upto 1 Lakh 20k',
     registrationFee: '199 per team',
     teamSize: 'Varies',
     villainImg: "/assets/images/quadrant.png",
@@ -259,7 +257,7 @@ export const EVENTS = [
             title: "Round 1: Bug Fixing Challenge (Non-Elimination)",
             points: [
               "Duration: 45 Minutes.",
-              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional) in a provided GitHub repo.",
+              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional)",
               "Evaluation: Correct identification and resolution of issues.",
               "Top performing teams gain a score advantage."
             ]
@@ -335,24 +333,21 @@ export const EVENTS = [
         ]
       },
 
+      // ✅ CARD 1: PHARMASPARK - MODEL MAKING
       {
-        title: "PHARMASPARK",
-        description: "PHARMASPARK features two distinct events:\n\n1. MODEL MAKING: Create a model related to Pharmaceutical Sciences with a poster/PPT.\n2. HERBAL FORMULATION: Prepare herbal formulations (Creams, Gels, etc.) with analysis reports.",
+        title: "PharmaSpark: Model Making",
+        description: "Create a model related to Pharmaceutical Sciences with a poster/PPT. \nTheme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
         image: "/assets/images/pharmatech.png",
         fee: "₹199 / TEAM",
         date: "20 Feb",
-        rounds: "Model & Formulation",
+        rounds: "Model Making",
         prize: "Prize money worth upto 30k",
-        multiButton: [
-          { label: "Register: Model Making", link: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions" },
-          { label: "Register: Herbal Form.", link: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions" }
-        ],
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
             title: "Theme & Eligibility",
             points: [
-              "Theme: 'Lab to Life: Pharmaceutical Development Models & Formulations'",
+              "Theme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
               "Eligibility: D. Pharm, B. Pharm, M. Pharm, Pharm. D, Ph.D. (Pursuing).",
               "Department: Participants must be from the Pharmacy department.",
               "Team Size: 2-4 participants per team.",
@@ -360,7 +355,7 @@ export const EVENTS = [
             ]
           },
           {
-            title: "EVENT 1: Model Making Rules",
+            title: "Model Making Rules",
             points: [
               "Requirement: A model related to Pharmaceutical Sciences.",
               "Presentation: Self-explanatory poster or PowerPoint presentation (Laptop required).",
@@ -371,7 +366,40 @@ export const EVENTS = [
             ]
           },
           {
-            title: "EVENT 2: Herbal Formulation Rules",
+            title: "General Guidelines",
+            points: [
+              "Reporting Time: 15 minutes before schedule.",
+              "Awards: Top 3 teams receive prizes/certificates. Participation certificates for all.",
+              "Disqualification: Unethical behavior leads to immediate disqualification.",
+              "Decisions: Judges' and Faculty-coordinators' decisions are final."
+            ]
+          }
+        ]
+      },
+
+      // ✅ CARD 2: PHARMASPARK - HERBAL FORMULATION
+      {
+        title: "PharmaSpark: Herbal Formulation",
+        description: "Prepare herbal formulations (Creams, Gels, etc.) with analysis reports. \nTheme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
+        image: "/assets/images/pharmatech.png",
+        fee: "₹199 / TEAM",
+        date: "20 Feb",
+        rounds: "Herbal Formulation",
+        prize: "Prize money worth upto 30k",
+        registrationLink: "https://unstop.com/p/quadrant-pharmaspark-2-trinity-academy-of-engineering-pune-1631991",
+        ruleBook: [
+          {
+            title: "Theme & Eligibility",
+            points: [
+              "Theme: “Lab to Life: Pharmaceutical Development Models & Formulations”",
+              "Eligibility: D. Pharm, B. Pharm, M. Pharm, Pharm. D, Ph.D. (Pursuing).",
+              "Department: Participants must be from the Pharmacy department.",
+              "Team Size: 2-4 participants per team.",
+              "ID Card: Must carry institute identity card."
+            ]
+          },
+          {
+            title: "Herbal Formulation Rules",
             points: [
               "Topics: Creams, Gels, Powders, Hair tonics, etc.",
               "Requirement: Prepared formulations with ingredient details, evaluation parameters, and analysis report.",
@@ -391,7 +419,7 @@ export const EVENTS = [
             ]
           }
         ]
-      }
+      },
     ]
   },
 
