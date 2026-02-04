@@ -195,31 +195,43 @@ export const EVENTS = [
           {
             title: "Event Overview",
             points: [
-              "Teams must design a line-following robotic vehicle with a modular cage.",
-              "The cage must be built using provided Modular Truss Node Joints only.",
-              "No pre-built chassis allowed."
+              "It follows a track on the ground by detecting a line.",
+              "It carries a load safely in a custom frame that the participant builds.",
+              "It finishes the race quickly and accurately without remote control."
+            ]
+          },
+          {
+            title: "Instructions",
+            points: [
+              "Participating Teams will be provided with a FREE kit to make the robot.",
+              "Details of circuit connection will be provided.",
+              "Participating Teams are expected to bring their own laptops. Use of Internet is allowed.",
+              "Participating Teams must make a line-following robocar with the FREE provided kit using an IR sensor.",
+              "Participating Teams will be provided with a load to be carried from start to end.",
+              "No pre-built chassis allowed.",
+              "Teams have 2 hours to build their robocars.",
+              "Teams cannot stick, tape, weld, fit or permanently bond the load with the robocar.",
+              "Teams must make a frame/cage with the FREE provided materials to carry the load."
             ]
           },
           {
             title: "Robot Constraints",
             points: [
-              "Max Footprint: 20cm x 20cm",
-              "Max Height: 12cm",
+              "Max Footprint: 25cm x 15cm",
+              "Max Height: 20cm",
               "Must be self-contained and autonomous."
             ]
           },
           {
-            title: "Modular Cage Rules",
+            title: "Frame/Cage Rules",
             points: [
               "No glue, tape, welding, or permanent bonding.",
-              "Only mechanical locking (fit/pinning) allowed.",
               "Teams can choose any geometry (not necessarily cubic)."
             ]
           },
           {
             title: "Electronics & Power",
             points: [
-              "Any control logic (PID/Threshold) allowed.",
               "No wireless control allowed.",
               "Power source provided/approved by organizers."
             ]
@@ -227,8 +239,10 @@ export const EVENTS = [
           {
             title: "Competition Format",
             points: [
+              "Teams will be evaluated on design efficiency (dimensions and speed).",
+              "Time penalty if robocar leaves the track (max 5 times before DQ). Manual reset allowed.",
               "Single Round Race: Fastest run wins.",
-              "If payload drops, team must restart.",
+              "If payload drops, teams get 3 chances to restart, otherwise disqualified.",
               "Judges' decision is final."
             ]
           }
@@ -257,7 +271,7 @@ export const EVENTS = [
             title: "Round 1: Bug Fixing Challenge (Non-Elimination)",
             points: [
               "Duration: 45 Minutes.",
-              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional)",
+              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional) in a provided GitHub repo.",
               "Evaluation: Correct identification and resolution of issues.",
               "Top performing teams gain a score advantage."
             ]
@@ -386,7 +400,7 @@ export const EVENTS = [
         date: "20 Feb",
         rounds: "Herbal Formulation",
         prize: "Prize money worth upto 30k",
-        registrationLink: "https://unstop.com/p/quadrant-pharmaspark-2-trinity-academy-of-engineering-pune-1631991",
+        registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
             title: "Theme & Eligibility",
