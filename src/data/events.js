@@ -193,10 +193,10 @@ export const EVENTS = [
         registrationLink: "https://unstop.com/o/hQJqevc?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
-            title: "Event Overview",
+            title: "What do we mean by a Robocar?",
             points: [
               "It follows a track on the ground by detecting a line.",
-              "It carries a load safely in a custom frame that the participant builds.",
+              "It carries a load safely in a custom frame that you (as a participant) make.",
               "It finishes the race quickly and accurately without remote control."
             ]
           },
@@ -206,12 +206,13 @@ export const EVENTS = [
               "Participating Teams will be provided with a FREE kit to make the robot.",
               "Details of circuit connection will be provided.",
               "Participating Teams are expected to bring their own laptops. Use of Internet is allowed.",
-              "Participating Teams must make a line-following robocar with the FREE provided kit using an IR sensor.",
+              "Participating Teams must make a line-following robocar with the FREE provided kit.",
               "Participating Teams will be provided with a load to be carried from start to end.",
+              "Teams must make a frame/cage with the FREE provided materials to carry the load.",
               "No pre-built chassis allowed.",
               "Teams have 2 hours to build their robocars.",
-              "Teams cannot stick, tape, weld, fit or permanently bond the load with the robocar.",
-              "Teams must make a frame/cage with the FREE provided materials to carry the load."
+              "Teams cannot stick, tape, weld, fit or permanently bond the load with the robocar."
+              
             ]
           },
           {
@@ -250,7 +251,7 @@ export const EVENTS = [
       },
 
       {
-        title: "BUG 2 BUILD (Coding)",
+        title: "BUG 2 BUILD ",
         description: "Solve algorithmic challenges, debug fast, and compete against the best minds.",
         image: "/assets/images/bug2build.png",
         fee: "199 ₹ / Team",
@@ -271,7 +272,7 @@ export const EVENTS = [
             title: "Round 1: Bug Fixing Challenge (Non-Elimination)",
             points: [
               "Duration: 45 Minutes.",
-              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional) in a provided GitHub repo.",
+              "Objective: Identify and fix 3 major bugs (logical, runtime, or functional).",
               "Evaluation: Correct identification and resolution of issues.",
               "Top performing teams gain a score advantage."
             ]
@@ -308,7 +309,7 @@ export const EVENTS = [
       },
 
       {
-        title: "Infrathon (Model Making)",
+        title: "Infrathon",
         description: "Hands-on infrastructure challenge: Design a Geodesic Dome (Round 1) and create a Building Facade (Round 2). Theme: Efficient Structures for a Sustainable Future.",
         image: "/assets/images/infrathon.png",
         fee: "₹199 / Team",
@@ -324,7 +325,7 @@ export const EVENTS = [
               "Task: Construct a scaled physical model of a self-supporting Geodesic Dome.",
               "Specs: Max Diameter 30–40 cm, Max Height 20–25 cm.",
               "Materials Allowed: Ice-cream sticks, bamboo skewers, straws, thread, glue. (No kits/metal).",
-              "Format: 2–3 Hours. Team of 2-3 members."
+              "Format: 2–3 Hours. Team of 2-4 members."
             ]
           },
           {
@@ -355,7 +356,7 @@ export const EVENTS = [
         fee: "₹199 / TEAM",
         date: "20 Feb",
         rounds: "Model Making",
-        prize: "Prize money worth upto 30k",
+        prize: "Prize money worth upto 15k",
         registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
         ruleBook: [
           {
@@ -372,9 +373,7 @@ export const EVENTS = [
             title: "Model Making Rules",
             points: [
               "Requirement: A model related to Pharmaceutical Sciences.",
-              "Presentation: Self-explanatory poster or PowerPoint presentation (Laptop required).",
               "Materials: Participants can choose any material.",
-              "Constraints: No personal details on PPT/Poster.",
               "Time: 4–5 minutes for explanation.",
               "Judging: Selection, Design & Fabrication, Explanation, Aesthetic appeal."
             ]
@@ -399,8 +398,8 @@ export const EVENTS = [
         fee: "₹199 / TEAM",
         date: "20 Feb",
         rounds: "Herbal Formulation",
-        prize: "Prize money worth upto 30k",
-        registrationLink: "https://unstop.com/o/RvkO1x5?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Competitions",
+        prize: "Prize money worth upto 15k",
+        registrationLink: "https://unstop.com/p/quadrant-pharmaspark-2-trinity-academy-of-engineering-pune-1631991",
         ruleBook: [
           {
             title: "Theme & Eligibility",

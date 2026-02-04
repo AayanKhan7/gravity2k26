@@ -30,22 +30,23 @@ function App() {
   const [enableStarfield, setEnableStarfield] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
 
-  // ✅ Enable / Disable stars based on device & motion preference
+  // ✅ UPDATED: Only disable stars if user prefers reduced motion (kept mobile enabled)
   useEffect(() => {
-    const widthQuery = window.matchMedia('(max-width: 768px)')
+    // const widthQuery = window.matchMedia('(max-width: 768px)') // ❌ REMOVED MOBILE CHECK
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 
     const updateFlags = () => {
-      const shouldDisable = widthQuery.matches || motionQuery.matches
+      // Only disable if user explicitly requests reduced motion in OS settings
+      const shouldDisable = motionQuery.matches 
       setEnableStarfield(!shouldDisable)
     }
 
     updateFlags()
-    widthQuery.addEventListener('change', updateFlags)
+    // widthQuery.addEventListener('change', updateFlags) // ❌ Removed listener
     motionQuery.addEventListener('change', updateFlags)
 
     return () => {
-      widthQuery.removeEventListener('change', updateFlags)
+      // widthQuery.removeEventListener('change', updateFlags) // ❌ Removed cleanup
       motionQuery.removeEventListener('change', updateFlags)
     }
   }, [])
@@ -69,7 +70,7 @@ function App() {
             transition={{ duration: 1, ease: "easeOut" }}
             className="relative overflow-x-hidden text-white"
           >
-            {/* ⭐ STAR BACKGROUND (WORKING VERSION) */}
+            {/* ⭐ STAR BACKGROUND (NOW ENABLED ON MOBILE) */}
             {enableStarfield && (
               <Suspense fallback={null}>
                 <GlobalStarBackground enabled={enableStarfield} />
