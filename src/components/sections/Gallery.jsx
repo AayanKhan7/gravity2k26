@@ -16,8 +16,8 @@ export default function Gallery() {
   return (
     <Element name="gallery" className="relative py-28 px-6 overflow-hidden">
       
-      {/* 🌌 BACKGROUND GLOW */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* 👫 BACKGROUND GLOW - Optimized for mobile */}
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-1/2 left-1/2 w-[60rem] h-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-500/10 blur-[160px]" />
       </div>
 
@@ -31,24 +31,26 @@ export default function Gallery() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 tracking-wider">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 tracking-wider">
             Gallery
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-lg sm:text-xl text-white/70">
             Moments captured from the Gravity universe
           </p>
         </motion.div>
 
         {/* 🖼️ IMAGE GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {GALLERY_IMAGES.map((src, index) => (
+          {GALLERY_IMAGES.map((src, index) => {
+            const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+            return (
             <motion.div
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }} // Staggered delay
-              whileHover={{ y: -10 }} // Float up effect
+              transition={{ duration: 0.6, delay: isMobile ? 0 : index * 0.1 }} // No stagger on mobile
+              whileHover={!isMobile ? { y: -10 } : {}} // Disable hover animations on mobile
               className="group relative h-72 rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(147,51,234,0.15)] bg-white/5"
             >
               {/* IMAGE */}
@@ -69,20 +71,20 @@ export default function Gallery() {
 
               {/* OVERLAY & TEXT */}
               <div
-                className="
+                className={`
                   absolute inset-0
                   bg-gradient-to-t from-black/90 via-black/20 to-transparent
-                  opacity-0 group-hover:opacity-100
-                  transition-opacity duration-500
                   flex flex-col justify-end p-6
-                "
+                  ${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transition-opacity duration-500'}
+                `}
               >
-                <p className="text-white font-mono text-sm tracking-widest translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p className={`text-white font-mono text-sm tracking-widest transition-transform duration-500 ${isMobile ? '' : 'translate-y-4 group-hover:translate-y-0'}`}>
                   HIGHLIGHT #{index + 1}
                 </p>
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
 
       </div>

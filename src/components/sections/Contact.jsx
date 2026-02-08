@@ -122,7 +122,6 @@ export default function Contact() {
               allowFullScreen 
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.576192135687!2d73.90366771485664!3d18.42152638746764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb5000000001%3A0x6a0487a956162380!2sTrinity%20Academy%20of%20Engineering!5e0!3m2!1sen!2sin!4v1675240000000!5m2!1sen!2sin"
-              onError={() => console.error('Map iframe failed to load')}
             ></iframe>
             
             {/* Overlay to blend map with dark theme */}

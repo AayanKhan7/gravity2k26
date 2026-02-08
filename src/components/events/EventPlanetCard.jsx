@@ -1,7 +1,16 @@
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 export default function EventPlanetCard({ event }) {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   // Use the event's specific accent color
   const accentColor = event.planetAccent || '#06b6d4'; 
 
@@ -12,7 +21,7 @@ export default function EventPlanetCard({ event }) {
     // ✅ Optimized container for Grid Cell
     <div className="w-full h-full flex items-stretch justify-center">
       <motion.div
-        whileHover={{ scale: 1.02 }}
+        whileHover={!isMobile ? { scale: 1.02 } : {}}
         className="relative w-full group rounded-3xl overflow-hidden flex flex-col bg-black"
         style={{
             // Glowing border effect
@@ -24,11 +33,12 @@ export default function EventPlanetCard({ event }) {
         <div className="absolute inset-0 z-0">
             {/* Background Image */}
             <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              className={`absolute inset-0 bg-cover bg-center ${!isMobile ? 'transition-transform duration-700 group-hover:scale-110' : ''}`}
               style={{ 
                 backgroundImage: `url(${event.villainImg})`,
                 // Fallback background in case image fails to load
-                backgroundColor: '#0a0a0a' 
+                backgroundColor: '#0a0a0a',
+                transform: !isMobile ? 'scale(1)' : 'scale(1)'
               }}
             />
             

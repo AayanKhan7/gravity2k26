@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',  // Custom extra-small breakpoint
+      },
       colors: {
         'neon-cyan': '#29B6F6',
         'neon-gold': '#FFE81F',

@@ -61,6 +61,7 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link to="events" smooth offset={-100} duration={600}>
             <button
+              aria-label="Register for events"
               className="
                 px-5 py-2
                 rounded-full
@@ -79,6 +80,8 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-white text-xl"
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
         >
           ☰
         </button>
@@ -126,6 +129,7 @@ export default function Navbar() {
               className="pt-2"
             >
               <button
+                aria-label="Register for events"
                 className="
                   w-full
                   px-6 py-3

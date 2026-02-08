@@ -63,13 +63,25 @@ function TimeBlock({ label, value }) {
 
 export default function About() {
   const time = useCountdown(EVENT_DATE)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768)
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <Element name="about" className="relative py-24 md:py-40 px-6 overflow-hidden">
       
-      {/* 🌌 AMBIENT BACKGROUND GLOWS */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
+      {/* 🌌 AMBIENT BACKGROUND GLOWS - Optimized for mobile */}
+      {!isMobile && (
+        <>
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none" />
+        </>
+      )}
 
       <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
@@ -81,14 +93,14 @@ export default function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative z-10"
         >
-          <div className="
+          <div className={`
             relative
-            bg-white/5 backdrop-blur-2xl 
+            bg-white/5 ${!isMobile ? 'backdrop-blur-2xl' : 'backdrop-blur-md'}
             border border-white/10 rounded-3xl 
             p-8 md:p-12
             text-center
             shadow-2xl
-          ">
+          `}>
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-xl opacity-50" />
             <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan-400 rounded-br-xl opacity-50" />
 
@@ -157,7 +169,7 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="bg-black/20 backdrop-blur-sm py-10 rounded-3xl border border-white/5 mx-auto max-w-5xl"
+          className={`${!isMobile ? 'bg-black/20 backdrop-blur-sm' : 'bg-black/40'} py-10 rounded-3xl border border-white/5 mx-auto max-w-5xl`}
         >
           <h2 className="text-xl md:text-3xl font-bold uppercase tracking-[0.2em] text-cyan-500 mb-4 drop-shadow-lg">
             Overall Prize Pool

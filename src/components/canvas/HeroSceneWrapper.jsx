@@ -3,6 +3,7 @@ import HeroScene from './HeroScene'
 
 export default function HeroSceneWrapper() {
   const wrapperRef = useRef(null)
+  const scrollTimeoutRef = useRef(null)
 
   useEffect(() => {
     // ✅ FORCE START STATE ON REFRESH
@@ -14,19 +15,28 @@ export default function HeroSceneWrapper() {
     window.scrollTo(0, 0)
 
     const handleScroll = () => {
-      const heroSection = document.getElementById('hero')
-      if (!heroSection || !wrapperRef.current) return
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
 
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
-      const scrollPosition = window.scrollY + window.innerHeight
+      scrollTimeoutRef.current = setTimeout(() => {
+        const heroSection = document.getElementById('hero')
+        if (!heroSection || !wrapperRef.current) return
 
-      wrapperRef.current.style.opacity =
-        scrollPosition > heroBottom + 100 ? '0' : '1'
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+        const scrollPosition = window.scrollY + window.innerHeight
+
+        wrapperRef.current.style.opacity =
+          scrollPosition > heroBottom + 100 ? '0' : '1'
+      }, 50)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current)
+    }
   }, [])
 
   return (
