@@ -143,7 +143,7 @@ const Sponsors = memo(function Sponsors() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center mb-32">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 place-items-center mb-32">
           {SPONSORS.map((sponsor, index) => (
             <SponsorCard key={index} item={sponsor} index={index} />
           ))}
@@ -165,7 +165,7 @@ const Sponsors = memo(function Sponsors() {
           </h2>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-8 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 place-items-center mb-20">
           {COMMUNITY_PARTNERS.map((partner, index) => (
             <SponsorCard key={index} item={partner} index={index} />
           ))}

@@ -90,7 +90,7 @@ export default function GuestsSection() {
         </motion.h2>
 
         {/* 👥 GUEST GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-16 gap-x-10 items-end">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-12 gap-y-12 gap-x-6 sm:gap-x-8 lg:gap-x-10 items-end">
           {GUESTS.map((guest, index) => {
             const isInfluencer = guest.role === "influencer";
             
