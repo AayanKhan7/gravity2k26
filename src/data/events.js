@@ -256,7 +256,7 @@ export const EVENTS = [
         image: "/assets/images/bug2build.png",
         fee: "199 ₹ / Team",
         date: "20 Feb",
-        rounds: "5 Rounds",
+        rounds: "3 Rounds",
         prize: "Prize money worth upto 30k",
         registrationLink: "https://unstop.com/o/tbz4deB?lb=Yfr5bRY7&utm_medium=Share&utm_source=sanchkum32445&utm_campaign=Online_coding_challenge",
         ruleBook: [
