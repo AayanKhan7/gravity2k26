@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { X } from "lucide-react"
 import { useEffect } from "react"
+import { createPortal } from "react-dom"
 
 export default function AnnouncementPoster({ isOpen, onClose }) {
   useEffect(() => {
@@ -47,7 +48,11 @@ export default function AnnouncementPoster({ isOpen, onClose }) {
     },
   ]
 
-  return (
+  if (typeof document === "undefined") {
+    return null
+  }
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -134,6 +139,7 @@ export default function AnnouncementPoster({ isOpen, onClose }) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }
