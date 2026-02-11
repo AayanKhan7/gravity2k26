@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from '../../data'
 import { motion } from 'framer-motion'
 import { Link } from 'react-scroll' // ✅ Imported for scrolling
-import { Instagram } from 'lucide-react' // ✅ Only kept Instagram
+import { Instagram, Linkedin } from 'lucide-react' // ✅ Only kept Instagram
 
 export default function Footer() {
   const colleges = [
@@ -144,6 +144,15 @@ export default function Footer() {
               Lead Developer: <span className="text-white/50">Ayaan Khan</span> • 
               <a href="mailto:ayaanikhan.tae@kjei.edu.in" className="hover:text-cyan-400 ml-1 transition-colors">
                 ayaanikhan.tae@kjei.edu.in
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ayaankhan0717/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center ml-2 text-white/50 hover:text-cyan-400 transition-colors"
+                aria-label="Ayaan Khan on LinkedIn"
+              >
+                <Linkedin size={14} />
               </a>
             </p>
           </div>
