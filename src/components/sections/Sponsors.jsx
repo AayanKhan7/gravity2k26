@@ -10,6 +10,11 @@ const SPONSORS = [
     link: "#"
   },
   {
+    name: "SOULFUL STROKES",
+    logo: "/assets/images/soulful.jpg",
+    link: "#"
+  },
+  {
     name: "DigiGhar",
     logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png",
     link: "#"
