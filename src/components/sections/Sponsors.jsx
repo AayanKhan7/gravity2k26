@@ -14,6 +14,11 @@ const SPONSORS = [
     logo: "/assets/images/soulful.jpg",
     link: "#"
   },
+   {
+    name: "Branded Collection",
+    logo: "/assets/images/Branded.jpeg",
+    link: "#"
+  },
   {
     name: "DigiGhar",
     logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png",
