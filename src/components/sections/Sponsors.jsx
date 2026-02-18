@@ -20,6 +20,26 @@ const SPONSORS = [
     link: "#"
   },
   {
+    name: "Codezone IT Solutions ",
+    logo: "/assets/images/codezone.jpeg",
+    link: "#"
+  },
+  {
+    name: "StepUp Solutions",
+    logo: "/assets/images/stepup logo-01.png",
+    link: "#"
+  },
+  {
+    name: "Proazure Software",
+    logo: "/assets/images/proazure.jpg",
+    link: "#"
+  },
+  {
+    name: "Anatek Services Pvt. Ltd.",
+    logo: "/assets/images/anatek.jpg",
+    link: "#"
+  },
+  {
     name: "DigiGhar",
     logo: "/assets/images/DIGIGHAR_LOGO-removebg-preview.png",
     link: "#"
