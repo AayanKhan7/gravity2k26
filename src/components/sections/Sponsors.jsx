@@ -35,8 +35,8 @@ const SPONSORS = [
     link: "#"
   },
   {
-    name: "Anatek Services Pvt. Ltd.",
-    logo: "/assets/images/anatek.jpg",
+    name: "Saraswati Building Materials",
+    logo: "/assets/images/saraswati.png",
     link: "#"
   },
   {
